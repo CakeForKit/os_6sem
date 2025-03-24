@@ -40,7 +40,7 @@ struct sembuf stop_write[] = { {active_writer, -1, 0}, {bin_sem, 1, 0} };
 int semid;
 char buf[len_buf + 1];
 int f_sig = 1;
-#define max_events 10
+#define max_events 100
 
 void sigint_handler(int sig_numb) {
     printf("signal=%d\n", sig_numb);

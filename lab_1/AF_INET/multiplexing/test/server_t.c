@@ -51,14 +51,14 @@ void* serv_client_request(void *args)
 {
     unsigned index;
     int connfd = *((int *)args);
-    char buf[BUF_SIZE];
+    char buf[buf_size];
     int status, is_full;
 
     printf("(%d)Got new connection!\n", getpid());
 
     while (1)
     {
-        if (recv(connfd, buf, BUF_SIZE, 0) <= 0)
+        if (recv(connfd, buf, buf_size, 0) <= 0)
         {
             printf("(%d)Server finished\n", getpid());
             break;

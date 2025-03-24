@@ -140,6 +140,7 @@ void *func_thread(void *arg) {
 }
 
 int main(int argc, char *argv[]) {
+    printf("pid = %d\n", getpid());
     key_t key;
     if (signal(SIGINT, sigint_handler) == SIG_ERR) {
         perror("signal"); 
@@ -183,7 +184,8 @@ int main(int argc, char *argv[]) {
     struct thr_data_t *thr_data;
     struct sockaddr cli_addr;
     socklen_t clilen = sizeof(struct sockaddr);
-    while (f_sig) {
+    // while (f_sig) {
+    for (size_t i = 0; i < 5; ++i) {
         if ((connfd = accept(listenfd, &cli_addr, &clilen)) == -1) {
             perror("accept");
             if (errno == EINTR)

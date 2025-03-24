@@ -10,7 +10,7 @@
 int main(int argc, char **argv)
 {
     int sockfd, ind;
-    char buf[BUF_SIZE];
+    char buf[buf_size];
     struct sockaddr_in servaddr;
 
     if (argc != 2)

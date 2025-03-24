@@ -1,0 +1,29 @@
+/proc/5682/maps: 
+cnt_pages	maps data
+1			55e2a4551000-55e2a4552000 r--p 00000000 08:20 68110                      /home/kathrine/vuz/os_6sem/lab_1/AF_INET/threads/server_thread
+1			55e2a4552000-55e2a4553000 r-xp 00001000 08:20 68110                      /home/kathrine/vuz/os_6sem/lab_1/AF_INET/threads/server_thread
+1			55e2a4553000-55e2a4554000 r--p 00002000 08:20 68110                      /home/kathrine/vuz/os_6sem/lab_1/AF_INET/threads/server_thread
+1			55e2a4554000-55e2a4555000 r--p 00002000 08:20 68110                      /home/kathrine/vuz/os_6sem/lab_1/AF_INET/threads/server_thread
+1			55e2a4555000-55e2a4556000 rw-p 00003000 08:20 68110                      /home/kathrine/vuz/os_6sem/lab_1/AF_INET/threads/server_thread
+33			55e2dd1de000-55e2dd1ff000 rw-p 00000000 00:00 0                          [heap]
+33			7f8e08000000-7f8e08021000 rw-p 00000000 00:00 0 
+16351		7f8e08021000-7f8e0c000000 ---p 00000000 00:00 0 
+1			7f8e0da33000-7f8e0da34000 ---p 00000000 00:00 0 
+2051		7f8e0da34000-7f8e0e237000 rw-p 00000000 00:00 0 
+40			7f8e0e237000-7f8e0e25f000 r--p 00000000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+405			7f8e0e25f000-7f8e0e3f4000 r-xp 00028000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+88			7f8e0e3f4000-7f8e0e44c000 r--p 001bd000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+1			7f8e0e44c000-7f8e0e44d000 ---p 00215000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+4			7f8e0e44d000-7f8e0e451000 r--p 00215000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+2			7f8e0e451000-7f8e0e453000 rw-p 00219000 08:20 20854                      /usr/lib/x86_64-linux-gnu/libc.so.6
+13			7f8e0e453000-7f8e0e460000 rw-p 00000000 00:00 0 
+2			7f8e0e468000-7f8e0e46a000 rw-p 00000000 00:00 0 
+2			7f8e0e46a000-7f8e0e46c000 r--p 00000000 08:20 20851                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+42			7f8e0e46c000-7f8e0e496000 r-xp 00002000 08:20 20851                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+11			7f8e0e496000-7f8e0e4a1000 r--p 0002c000 08:20 20851                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+2			7f8e0e4a2000-7f8e0e4a4000 r--p 00037000 08:20 20851                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+2			7f8e0e4a4000-7f8e0e4a6000 rw-p 00039000 08:20 20851                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+34			7ffde429d000-7ffde42bf000 rw-p 00000000 00:00 0                          [stack]
+4			7ffde42e4000-7ffde42e8000 r--p 00000000 00:00 0                          [vvar]
+2			7ffde42e8000-7ffde42ea000 r-xp 00000000 00:00 0                          [vdso]
+count pages = 19128

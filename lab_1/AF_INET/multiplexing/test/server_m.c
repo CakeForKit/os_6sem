@@ -44,7 +44,7 @@ struct sembuf stop_write[] = {{SHADOW_WRITER, -1, 0},
 
 void serv_client_request(int cl_fd) 
 {
-    char buf[BUF_SIZE];
+    char buf[buf_size];
     int status, is_full;
     unsigned index;
 
@@ -52,7 +52,7 @@ void serv_client_request(int cl_fd)
 
     while (1) 
     {
-        ssize_t bytes_received = recv(cl_fd, buf, BUF_SIZE, 0);
+        ssize_t bytes_received = recv(cl_fd, buf, buf_size, 0);
         if (bytes_received <= 0) 
         {
             printf("(%d) Server finished\n", getpid());

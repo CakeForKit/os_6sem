@@ -178,6 +178,7 @@ void *func_thread(void *arg) {
         break;
     }
     close(sockfd);
+
     end = clock();
     t = end - beg;
     sprintf(strtime, "%ld\n", t);
@@ -262,7 +263,6 @@ int main(int argc, char *argv[]) {
         if ((rc = pthread_create(&tid, &attr, func_thread, (void *) thrdata)) != 0) {
             printf("rc = %d\n", rc);
             perror("pthread_create");
-            sleep(4);
             exit(EXIT_FAILURE);
         }
         i = (rand()) % num;
