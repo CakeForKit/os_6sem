@@ -185,7 +185,7 @@ int main(int argc, char *argv[]) {
     struct sockaddr cli_addr;
     socklen_t clilen = sizeof(struct sockaddr);
     // while (f_sig) {
-    for (size_t i = 0; i < 5; ++i) {
+    for (size_t i = 0; i < 15; ++i) {
         if ((connfd = accept(listenfd, &cli_addr, &clilen)) == -1) {
             perror("accept");
             if (errno == EINTR)

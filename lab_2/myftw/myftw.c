@@ -45,6 +45,7 @@ static int dopath(Myfunc_t* func, const char *filename, size_t level_depth) {
         if (strcmp(dirp->d_name, ".") != 0 && strcmp(dirp->d_name, "..") != 0)
             ret = dopath(func, dirp->d_name, level_depth + 1);
     }
+    printf("xxx\n");
     if (chdir("..") == -1) {
         perror("chdir");
         return 1;

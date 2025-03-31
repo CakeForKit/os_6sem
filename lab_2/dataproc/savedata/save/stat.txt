@@ -1,4 +1,3 @@
-/proc/9701/stat: 
 pid  9701
 comm  (server_thread)
 state  S

@@ -125,17 +125,17 @@ int main(int argc, char **argv) {
     sprintf(filename, "/proc/%s/io", strpid);
     read_file(filename, fall_out);
 
-    sprintf(filename, "/proc/%s/comm", strpid);
-    read_file(filename, fall_out);
+    // sprintf(filename, "/proc/%s/comm", strpid);
+    // read_file(filename, fall_out);
 
-    sprintf(filename, "/proc/%s/root", strpid);
-    read_symlink(filename, fall_out);
+    // sprintf(filename, "/proc/%s/root", strpid);
+    // read_symlink(filename, fall_out);
 
     // sprintf(filename, "/proc/%s/statm", strpid);
     // read_file(filename, fall_out);
 
-    sprintf(filename, "/proc/%s/task", strpid);
-    read_dir(filename, fall_out);
+    // sprintf(filename, "/proc/%s/task", strpid);
+    // read_dir(filename, fall_out);
 
     FILE *fsmaps_out = fopen("./savedata/smaps.txt", "w");
     if (fsmaps_out == NULL) {
