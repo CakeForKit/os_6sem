@@ -45,7 +45,7 @@ static int __init mod_init(void)
     struct task_struct *task = &init_task;
     do
     {
-        printk(KERN_INFO "+pid=%5d, comm=%15s, ppid=%5d, parentcomm=%15s, on_cpu=%5d, policy=%d, prio=%5d, static_prio=%5d, normal_prio=%5d, rt_priority=%5d, state=%5d (%c), exit_state=%d, exit_code=%d, exit_signal=%5d, utime=%10llu, stime=%10llu", 
+        printk(KERN_INFO "+pid=%5d, comm=%15s, ppid=%5d, parentcomm=%15s, on_cpu=%5d, policy=%d, prio=%5d, state=%5d, exit_state=%d, exit_code=%d, exit_signal=%5d, utime=%10llu, stime=%10llu", 
             task->pid, 
             task->comm, 
             task->parent->pid, 
@@ -53,11 +53,11 @@ static int __init mod_init(void)
             task->on_cpu, 
             task->policy,
             task->prio, 
-            task->static_prio,
-            task->normal_prio,
-            task->rt_priority,
+            // task->static_prio,
+            // task->normal_prio,
+            // task->rt_priority,
             task->__state, 
-            task_state_to_char(task), 
+            // task_state_to_char(task), 
             task->exit_state, 
             task->exit_code, 
             task->exit_signal,
@@ -66,7 +66,7 @@ static int __init mod_init(void)
             print_task_flags(task->flags);             
     } while ((task = next_task(task)) != &init_task);
 
-    printk(KERN_INFO "+pid=%5d, comm=%15s, ppid=%5d, parentcomm=%15s, on_cpu=%5d, policy=%d, prio=%5d, static_prio=%5d, normal_prio=%5d, rt_priority=%5d, state=%5d (%c), exit_state=%d, exit_code=%d, exit_signal=%5d, utime=%10llu, stime=%10llu", 
+    printk(KERN_INFO "+pid=%5d, comm=%15s, ppid=%5d, parentcomm=%15s, on_cpu=%5d, policy=%d, prio=%5d, state=%5d, exit_state=%d, exit_code=%d, exit_signal=%5d, utime=%10llu, stime=%10llu", 
             current->pid, 
             current->comm, 
             current->parent->pid, 
@@ -74,11 +74,11 @@ static int __init mod_init(void)
             current->on_cpu, 
             current->policy,
             current->prio, 
-            current->static_prio,
-            current->normal_prio,
-            current->rt_priority,
+            // current->static_prio,
+            // current->normal_prio,
+            // current->rt_priority, // static_prio=%5d, normal_prio=%5d, rt_priority=%5d, 
             current->__state, 
-            task_state_to_char(current), 
+            // task_state_to_char(current), 
             current->exit_state, 
             current->exit_code, 
             current->exit_signal,

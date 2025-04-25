@@ -1,0 +1,33 @@
+[ 2512.008318] +pid=    0, comm=      swapper/0, ppid=    0, parentcomm=      swapper/0, 
+                on_cpu=    0, policy=0, prio=  120, state=    0, exit_state=0, exit_code=0, exit_signal=    0, utime=         0, stime=14920000000 
+                flags: [IDLE KTHREAD NO_SETAFFINITY ]
+
+[ 2512.008346] +pid=    2, comm=       kthreadd, ppid=    0, parentcomm=      swapper/0, 
+                on_cpu=    0, policy=0, prio=  120, state=    1, exit_state=0, exit_code=0, exit_signal=    0, utime=         0, stime=  20000000 
+                flags: [FORKNOEXEC NOFREEZE KTHREAD ]
+
+
+[ 2512.008480] +pid=   13, comm=    ksoftirqd/0, ppid=    2, parentcomm=       kthreadd, 
+                on_cpu=    0, policy=0, prio=  120, state=    1, exit_state=0, exit_code=0, exit_signal=   17, utime=         0, stime=         0 
+                flags: [FORKNOEXEC NOFREEZE KTHREAD NO_SETAFFINITY ]
+
+[ 2512.008593] +pid=   15, comm=    migration/0, ppid=    2, parentcomm=       kthreadd, 
+                on_cpu=    0, policy=1, prio=    0, state=    1, exit_state=0, exit_code=0, exit_signal=   17, utime=         0, stime=  40000000 
+                flags: [FORKNOEXEC NOFREEZE KTHREAD NO_SETAFFINITY ] 
+
+
+
+[ 2512.011775] +pid=11026, comm=         insmod, ppid=11025, parentcomm=           sudo, 
+                on_cpu=    1, policy=0, prio=  120, state=    0, exit_state=0, exit_code=0, exit_signal=   17, utime=         0, stime=  10000000 
+                flags: [SUPERPRIV RANDOMIZE ]
+
+
+
+
+
+[ 2512.009978] +pid=  115, comm=           ksmd, ppid=    2, parentcomm=       kthreadd, 
+                on_cpu=    0, policy=0, prio=  125, state=    1, exit_state=0, exit_code=0, exit_signal=   17, utime=         0, stime=         0 
+                flags: [FORKNOEXEC KTHREAD ]
+[ 2512.009990] +pid=  116, comm=     khugepaged, ppid=    2, parentcomm=       kthreadd, 
+                on_cpu=    0, policy=0, prio=  139, state=    1, exit_state=0, exit_code=0, exit_signal=   17, utime=         0, stime= 220000000 
+                flags: [FORKNOEXEC KTHREAD ]
