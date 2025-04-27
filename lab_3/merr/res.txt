@@ -1,0 +1,62 @@
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ make
+...
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ ls *.ko
+md1.ko  md2.ko  md3.ko
+
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo insmod md2.ko 
+[sudo] password for kathrine: 
+insmod: ERROR: could not insert module md2.ko: Unknown symbol in module
+
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$  dmesg | tail -n30 | grep md
+[   20.657964] systemd-journald[120]: Received client request to flush runtime journal.
+[   20.667283] systemd-journald[120]: File /var/log/journal/6e042f16e274422db1f6df9420a84b46/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[  767.085520] md2: loading out-of-tree module taints kernel.
+[  767.085598] md2: Unknown symbol md1_data (err -2)
+[  767.085604] md2: Unknown symbol md1_proc (err -2)
+
+
+// Следует выполнит загрузку модулей в другом порядке (правильном)
+
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo insmod md1.ko
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo insmod md2.ko
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ lsmod | grep md
+md2                    16384  0
+md1                    16384  1 md2
+
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$  dmesg | tail -n60 | grep +
+[ 1332.442253] + module md1 start!
+[ 1341.193562] + module md2 start!
+[ 1341.193567] + data string exported from md1 : Привет мир!
+[ 1341.193570] + string returned md1_proc() is : Привет мир!
+
+
+// Попытка выгрузить модуль
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo rmmod md1
+rmmod: ERROR: Module md1 is in use by: md2
+
+// Счетчик ссылок на md1 не равен 0 -> он не может быть выгружен
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ lsmod | grep md
+md2                    16384  0
+md1                    16384  1 md2
+
+// выгружаем модули в правильном порядке -> операционная система вернулась в исходное состояние!
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo rmmod md2
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo rmmod md1
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ lsmod | grep md
+
+
+// загрузка модуля md3.ko
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo insmod md3.ko
+insmod: ERROR: could not insert module md3.ko: Operation not permitted
+
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ dmesg | tail -n60 | grep +
+[ 3113.141802] + module md1 start!
+[ 3121.058382] + module md2 start!
+[ 3121.058384] + data string exported from md1 : Привет мир!
+[ 3121.058386] + string returned md1_proc() is : Привет мир!
+[ 3127.243788] + module md3 start!
+[ 3127.243827] + data string exported from md1 : Привет мир!
+[ 3127.243831] + string returned md1_proc() is : Привет мир!
+kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ lsmod | grep md
+md2                    16384  0
+md1                    16384  1 md2
