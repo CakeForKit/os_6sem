@@ -20,6 +20,7 @@ extern char* md1_noexport( void ) {
 
 EXPORT_SYMBOL( md1_data );
 EXPORT_SYMBOL( md1_proc );
+// EXPORT_SYMBOL( md1_local );
 
 static int __init md_init( void ) {
     printk( "+ module md1 start!\n" );

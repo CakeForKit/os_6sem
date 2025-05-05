@@ -8,8 +8,6 @@ kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ sudo insmod md2.ko
 insmod: ERROR: could not insert module md2.ko: Unknown symbol in module
 
 kathrine@Viva:~/vuz/os_6sem/lab_3/merr$  dmesg | tail -n30 | grep md
-[   20.657964] systemd-journald[120]: Received client request to flush runtime journal.
-[   20.667283] systemd-journald[120]: File /var/log/journal/6e042f16e274422db1f6df9420a84b46/system.journal corrupted or uncleanly shut down, renaming and replacing.
 [  767.085520] md2: loading out-of-tree module taints kernel.
 [  767.085598] md2: Unknown symbol md1_data (err -2)
 [  767.085604] md2: Unknown symbol md1_proc (err -2)
@@ -57,6 +55,7 @@ kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ dmesg | tail -n60 | grep +
 [ 3127.243788] + module md3 start!
 [ 3127.243827] + data string exported from md1 : Привет мир!
 [ 3127.243831] + string returned md1_proc() is : Привет мир!
+
 kathrine@Viva:~/vuz/os_6sem/lab_3/merr$ lsmod | grep md
 md2                    16384  0
 md1                    16384  1 md2
