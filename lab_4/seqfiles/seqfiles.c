@@ -10,91 +10,147 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("kathrine");
 
-static int limit = 10; //значение по умолчанию, его можно менять здесь
-module_param(limit, int, S_IRUGO); //или, передавая параметр, при загрузке модуля
+#define DIRNAME "mydir"
+#define FILENAME "myf"
+#define SYMNAME "mys"
+#define BUF_SIZE 1024
 
-static int* even_ptr; //усложняющий пример указатель, демонстрирующий, как работать
-        //с динамической памятью
+static struct proc_dir_entry *dir;
+static struct proc_dir_entry *file;
+static struct proc_dir_entry *sym;
 
+static char fortune_buf[BUF_SIZE];
+static int fpid = -1;
+#define PARSE_SIZE 16
 
-static void *ct_seq_start(struct seq_file *s, loff_t *pos) {
-    printk(KERN_INFO "+ ct_seq_start: pos = %Ld, seq-file pos = %lu.\n", *pos, s->count);
-
-    if ((*pos) >= limit) {     // are we done?
-        printk(KERN_INFO "Apparently, we're done.\n");
-        return NULL;
+static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
+{
+    size_t offset = 0;
+    
+    offset += snprintf(buf + offset, buf_size - offset, "(");
+    
+    if (flags & PF_IDLE) offset += snprintf(buf + offset, buf_size - offset, "IDLE,");
+    if (flags & PF_EXITING) offset += snprintf(buf + offset, buf_size - offset, "EXITING,");
+    if (flags & PF_KTHREAD) offset += snprintf(buf + offset, buf_size - offset, "KTHREAD,");
+    if (flags & PF_RANDOMIZE) offset += snprintf(buf + offset, buf_size - offset, "RANDOMIZE,");
+    if (flags & PF_KSWAPD) offset += snprintf(buf + offset, buf_size - offset, "KSWAPD,");
+    if (flags & PF_VCPU) offset += snprintf(buf + offset, buf_size - offset, "VCPU,");
+    if (flags & PF_WQ_WORKER) offset += snprintf(buf + offset, buf_size - offset, "WQ_WORKER,");
+    if (flags & PF_FORKNOEXEC) offset += snprintf(buf + offset, buf_size - offset, "FORKNOEXEC,");
+    if (flags & PF_MCE_PROCESS) offset += snprintf(buf + offset, buf_size - offset, "MCE_PROCESS,");
+    if (flags & PF_SUPERPRIV) offset += snprintf(buf + offset, buf_size - offset, "SUPERPRIV,");
+    if (flags & PF_DUMPCORE) offset += snprintf(buf + offset, buf_size - offset, "DUMPCORE,");
+    if (flags & PF_SIGNALED) offset += snprintf(buf + offset, buf_size - offset, "SIGNALED,");
+    if (flags & PF_MEMALLOC) offset += snprintf(buf + offset, buf_size - offset, "MEMALLOC,");
+    if (flags & PF_NPROC_EXCEEDED) offset += snprintf(buf + offset, buf_size - offset, "NPROC_EXCEEDED,");
+    if (flags & PF_USED_MATH) offset += snprintf(buf + offset, buf_size - offset, "USED_MATH,");
+    if (flags & PF_NOFREEZE) offset += snprintf(buf + offset, buf_size - offset, "NOFREEZE,");
+    if (flags & PF_KSWAPD) offset += snprintf(buf + offset, buf_size - offset, "KSWAPD,");
+    if (flags & PF_MEMALLOC_NOIO) offset += snprintf(buf + offset, buf_size - offset, "MEMALLOC_NOIO,");
+    if (flags & PF_NO_SETAFFINITY) offset += snprintf(buf + offset, buf_size - offset, "PF_NO_SETAFFINITY,");
+    
+    offset += snprintf(buf + offset, buf_size - offset, ")");
+    if (offset > strlen("(")) {
+        buf[offset-1] = '\0'; 
     }
-    //Выделяем память для целого числа, которое будет хранить наше растущее четное значение
-    even_ptr = kmalloc(sizeof(int), GFP_KERNEL);
-
-    if (!even_ptr)     //фатальная ошибка
-        return NULL;
-
-    printk(KERN_INFO "+ In start(), even_ptr = %pX.\n", even_ptr);
-    *even_ptr = (*pos)*2;
-    return even_ptr;
 }
 
-static int ct_seq_show(struct seq_file *s, void *v) {
-    printk(KERN_INFO "+ In show(), even = %d.\n", *(int*)v);
-    seq_printf(s, "The current value of the even number is %d\n", *(int*)v);
+// Первый вызов	Инициализация итерации
+static void *seq_start(struct seq_file *s, loff_t *pos) {
+    printk(KERN_INFO "+ seq_start: pos = %Ld.\n", *pos);
+    struct task_struct *task;
+    int len;
+    if (*offset > 0 || fpid == -1) {
+        return 0;
+    }
+    if (count >= BUF_SIZE) {
+        count = BUF_SIZE -1;
+    }
+
+    task = pid_task(find_vpid(fpid), PIDTYPE_PID);
+    if (task == NULL) {
+        len = sprintf(fortune_buf, "No such pid %d", fpid);
+        if (copy_to_user(buf, fortune_buf, len))
+            return -EFAULT;
+        *offset += len;
+        return len;
+    }
+
+    char flags[BUF_SIZE];
+    parse_task_flags(task->flags, flags, BUF_SIZE);
+    len = snprintf(fortune_buf, BUF_SIZE, 
+        "pid=%d\n ppid=%d\n"
+        "comm=%s\n pcomm=%s\n"
+        "state=%d\n prio=%d\n policy=%d\n" 
+        "exit_state=%d\n exit_code=%d\n exit_signal=%d\n"
+        "utime=%llu\n stime=%llu\n"
+        "flags=%s\n",
+        task->pid, task->parent->pid,
+        task->comm, task->parent->comm,
+        task->__state, task->prio, task->policy,
+        task->exit_state, task->exit_code, task->exit_signal,
+        task->utime, task->stime,
+        flags
+    );
+    return fortune_buf;
+}
+
+// Последующие вызовы	Переход к следующему элементу
+static void *seq_next(struct seq_file *s, void *v, loff_t *pos) {
+    printk(KERN_INFO "+ seq_next: v = %p, pos = %Ld.\n", v, *pos);
+
+    return NULL;
+    // (*pos)++;              //увеличиваем счётчик
+    // if (*pos >= limit)     //заканчиваем?
+    //     return NULL;
+
+    // *(int*)v += 2;         //переходим к следующему чётному
+
+    // return v;
+ }
+
+// После завершения	Освобождение ресурсов
+static void seq_stop(struct seq_file *s, void *v) {
+    printk(KERN_INFO "+ seq_stop");
+
+    if (v)
+        printk(KERN_INFO "+ v is %pX.\n", v);
+    else
+        printk(KERN_INFO "+ v is null.\n");
+}
+
+// Для каждого элемента	Форматированный вывод
+static int seq_show(struct seq_file *s, void *v) {
+    printk(KERN_INFO "+ seq_show\n");
+    
+    seq_printf(s, (char *)v);
     return 0;
 }
 
-static void *ct_seq_next(struct seq_file *s, void *v, loff_t *pos) {
-    printk(KERN_INFO "+ In next(), v = %pX, pos = %Ld, seq-file pos = %lu.\n", v, *pos, s->count);
-
-    (*pos)++;              //увеличиваем счётчик
-    if (*pos >= limit)     //заканчиваем?
-        return NULL;
-
-    *(int*)v += 2;         //переходим к следующему чётному
-
-    return v;
- }
-
-static void ct_seq_stop(struct seq_file *s, void *v) {
-    printk(KERN_INFO "+ Entering stop().\n");
-
-    if (v)
-        printk(KERN_INFO "v is %pX.\n", v);
-    else
-        printk(KERN_INFO "v is null.\n");
-
-    printk(KERN_INFO "+ In stop(), even_ptr = %pX.\n", even_ptr);
-
-    if (even_ptr) {
-        printk(KERN_INFO "+ Freeing and clearing even_ptr.\n");
-        kfree(even_ptr);
-        even_ptr = NULL;
-    } else
-        printk(KERN_INFO "+ even_ptr is already null.\n");
-}
-
-static struct seq_operations ct_seq_ops = {
-    .start = ct_seq_start,
-    .next  = ct_seq_next,
-    .stop  = ct_seq_stop,
-    .show  = ct_seq_show
+const struct seq_operations seq_ops = {
+    .start = seq_start,
+    .next  = seq_next,
+    .stop  = seq_stop,
+    .show  = seq_show
 };
 
 static int proc_open(struct inode *inode, struct file *file) {
-    printk(KERN_INFO "+ open\n");
-    return 0;
+    printk(KERN_INFO "+ proc_open\n");
+    return seq_open(file, &seq_ops);
 }
 
 static int proc_release(struct inode *inode, struct file *file) {
-    printk(KERN_INFO "+ release\n");
+    printk(KERN_INFO "+ proc_release\n");
     return 0;
 }
 
 static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff_t *offset) {
-    printk(KERN_INFO "+ read: offset=%lld, count=%zu\n", *offset, count);
+    printk(KERN_INFO "+ proc_read: offset=%lld, count=%zu\n", *offset, count);
     return seq_read(filp, buf, count, offset);
 }
 
 static ssize_t proc_write(struct file *filp, const char __user *buf, size_t count, loff_t *offset) {
-    printk(KERN_INFO " + write: offset=%lld, count=%zu\n", *offset, count);
+    printk(KERN_INFO " + proc_write: offset=%lld, count=%zu\n", *offset, count);
     if (*offset > 0) {
         return 0;
     }
@@ -109,39 +165,43 @@ static ssize_t proc_write(struct file *filp, const char __user *buf, size_t coun
     return count;
 }
 
-/**
- * Эта функция вызывается при открытии файла из /proc
- */
-static int ct_open(struct inode *inode, struct file *file) {
-    return seq_open(file, &ct_seq_ops);
+static const struct proc_ops proc_fops = {
+    .proc_open = proc_open,
+    .proc_release = proc_release,
+    .proc_read = proc_read,
+    .proc_write = proc_write,
 };
 
-/**
- * Эта структура собирает функции для управления файлом из /proc
- */
-static struct file_operations ct_file_ops = {
-    .owner   = THIS_MODULE,
-    .open    = ct_open,
-    .read    = seq_read,
-    .llseek  = seq_lseek,
-    .release = seq_release
-};
-
-/**
- * Эта функция вызывается, когда этот модуль загружается в ядро
- */
-static int __init ct_init(void) {
-    proc_create("evens", 0, NULL, &ct_file_ops);
+static int __init fortune_init(void) {
+    printk("+ init\n");
+    dir = proc_mkdir(DIRNAME, NULL);
+    if (dir == NULL) {
+        printk(KERN_ERR "+ proc_mkdir failed\n");
+        return -ENOMEM;
+    }
+    file = proc_create(FILENAME, 0666, dir, &proc_fops);
+    if (file == NULL) {
+        printk(KERN_ERR "+ proc_create failed\n");
+        proc_remove(file);
+        return -ENOMEM;
+    }
+    sym = proc_symlink(SYMNAME, NULL, DIRNAME "/" FILENAME);
+    if (sym == NULL) {
+        printk(KERN_ERR "+ proc_create failed\n");
+        proc_remove(file);
+        proc_remove(dir);
+        return -ENOMEM;
+    }
     return 0;
 }
 
-/**
- * Эта функция вызывается, когда этот модуль удаляют из ядра
- */
-static void __exit ct_exit(void) {
-    remove_proc_entry("evens", NULL);
+static void __exit fortune_exit(void) {
+    printk("+ exit\n");
+    proc_remove(sym);
+    proc_remove(file);
+    proc_remove(dir);
 }
 
-module_init(ct_init);
-module_exit(ct_exit);
+module_init(fortune_init);
+module_exit(fortune_exit);
 
