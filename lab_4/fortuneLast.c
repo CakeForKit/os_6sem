@@ -55,11 +55,11 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
     }
 }
 
-static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos) {
-    printk(KERN_INFO " + read: pos=%lld, count=%zu\n", *f_pos, count);
+static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, loff_t *offset) {
+    printk(KERN_INFO " + read: offset=%lld, count=%zu\n", *offset, count);
     struct task_struct *task;
     int len;
-    if (*f_pos > 0 || fpid == -1) {
+    if (*offset > 0 || fpid == -1) {
         return 0;
     }
     if (count >= BUF_SIZE) {
@@ -71,7 +71,7 @@ static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, l
         len = sprintf(fortune_buf, "No such pid %d", fpid);
         if (copy_to_user(buf, fortune_buf, len))
             return -EFAULT;
-        *f_pos += len;
+        *offset += len;
         return len;
     }
 
@@ -84,9 +84,6 @@ static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, l
         "pcomm=%s\n"
         "state=%d\n"
         "prio=%d\n"
-        // "normal_prio=%d\n"
-        // "static_prio=%d\n"
-        // "rt_prio=%d\n"
         "policy=%d\n" 
         "exit_state=%d\n"
         "exit_code=%d\n" 
@@ -100,9 +97,6 @@ static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, l
         task->parent->comm,
         task->__state,
         task->prio,
-        // task->normal_prio,
-        // task->static_prio,
-        // task->rt_priority,
         task->policy,
         task->exit_state,
         task->exit_code,
@@ -114,13 +108,13 @@ static ssize_t fortune_read(struct file *filp, char __user *buf, size_t count, l
 
     if (copy_to_user(buf, fortune_buf, len))
         return -EFAULT;
-    *f_pos += len;
+    *offset += len;
     return len;
 }
 
-static ssize_t fortune_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos) {
-    printk(KERN_INFO " + write: pos=%lld, count=%zu\n", *f_pos, count);
-    if (*f_pos > 0) {
+static ssize_t fortune_write(struct file *filp, const char __user *buf, size_t count, loff_t *offset) {
+    printk(KERN_INFO " + write: offset=%lld, count=%zu\n", *offset, count);
+    if (*offset > 0) {
         return 0;
     }
 

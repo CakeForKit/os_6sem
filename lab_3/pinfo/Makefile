@@ -20,9 +20,11 @@ default:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
 	make clean
 
-loadres:
+load:
 	sudo insmod infoproc.ko 
-	dmesg |  tail -n300 | grep + > resdata.txt
+	
+res:
+	sudo dmesg |  tail -n500 | grep + > resdata.txt
 
 clean:
 	@rm -f *.o .*.cmd .*.flags *.mod.c *.order

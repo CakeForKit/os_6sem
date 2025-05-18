@@ -26,7 +26,7 @@ load:
 	sudo insmod $(NAME_MODULE).ko 
 	
 res:
-	dmesg |  tail -n300 | grep + > resdata.txt
+	sudo dmesg |  tail -n300 | grep + > resdata4.txt
 
 clean:
 	@rm -f *.o .*.cmd .*.flags *.mod.c *.order

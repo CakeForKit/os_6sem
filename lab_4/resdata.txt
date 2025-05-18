@@ -1,2 +1,0 @@
-[    0.702636] usb usb1: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
-[    0.716307] usb usb2: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
