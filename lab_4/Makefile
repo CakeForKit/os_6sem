@@ -1,4 +1,4 @@
-NAME_MODULE = fortune
+NAME_MODULE = fortuneLast
 
 # Если KERNELRELEASE определён, значит вызов сделан из системы сборки ядра.
 ifneq ($(KERNELRELEASE),)
