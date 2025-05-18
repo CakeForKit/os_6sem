@@ -56,34 +56,28 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 }
 
 // Первый вызов	Инициализация итерации
-static void *seq_start(struct seq_file *s, loff_t *pos) {
-    printk(KERN_INFO "+ seq_start: pos = %Ld.\n", *pos);
+static void *seq_start(struct seq_file *s, loff_t *offset) {
+    printk(KERN_INFO "+ seq_start: pos = %Ld.\n", *offset);
     struct task_struct *task;
     int len;
     if (*offset > 0 || fpid == -1) {
         return 0;
     }
-    if (count >= BUF_SIZE) {
-        count = BUF_SIZE -1;
-    }
 
     task = pid_task(find_vpid(fpid), PIDTYPE_PID);
     if (task == NULL) {
-        len = sprintf(fortune_buf, "No such pid %d", fpid);
-        if (copy_to_user(buf, fortune_buf, len))
-            return -EFAULT;
-        *offset += len;
-        return len;
+        seq_printf(s, "No such pid %d\n", fpid);
+        return NULL;
     }
 
     char flags[BUF_SIZE];
     parse_task_flags(task->flags, flags, BUF_SIZE);
     len = snprintf(fortune_buf, BUF_SIZE, 
-        "pid=%d\n ppid=%d\n"
-        "comm=%s\n pcomm=%s\n"
-        "state=%d\n prio=%d\n policy=%d\n" 
-        "exit_state=%d\n exit_code=%d\n exit_signal=%d\n"
-        "utime=%llu\n stime=%llu\n"
+        "pid=%d\nppid=%d\n"
+        "comm=%s\npcomm=%s\n"
+        "state=%d\nprio=%d\npolicy=%d\n" 
+        "exit_state=%d\nexit_code=%d\nexit_signal=%d\n"
+        "utime=%llu\nstime=%llu\n"
         "flags=%s\n",
         task->pid, task->parent->pid,
         task->comm, task->parent->comm,
@@ -97,7 +91,7 @@ static void *seq_start(struct seq_file *s, loff_t *pos) {
 
 // Последующие вызовы	Переход к следующему элементу
 static void *seq_next(struct seq_file *s, void *v, loff_t *pos) {
-    printk(KERN_INFO "+ seq_next: v = %p, pos = %Ld.\n", v, *pos);
+    printk(KERN_INFO "+ seq_next:  pos = %Ld v = %s.\n", *pos, (char *)v);
 
     return NULL;
     // (*pos)++;              //увеличиваем счётчик
@@ -114,9 +108,9 @@ static void seq_stop(struct seq_file *s, void *v) {
     printk(KERN_INFO "+ seq_stop");
 
     if (v)
-        printk(KERN_INFO "+ v is %pX.\n", v);
+        printk(KERN_INFO "v is %pX.\n", v);
     else
-        printk(KERN_INFO "+ v is null.\n");
+        printk(KERN_INFO "v is null.\n");
 }
 
 // Для каждого элемента	Форматированный вывод
@@ -150,7 +144,7 @@ static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff
 }
 
 static ssize_t proc_write(struct file *filp, const char __user *buf, size_t count, loff_t *offset) {
-    printk(KERN_INFO " + proc_write: offset=%lld, count=%zu\n", *offset, count);
+    printk(KERN_INFO "+ proc_write: offset=%lld, count=%zu\n", *offset, count);
     if (*offset > 0) {
         return 0;
     }
