@@ -14,14 +14,17 @@ MODULE_AUTHOR("kathrine");
 #define FILENAME "myf"
 #define SYMNAME "mys"
 #define BUF_SIZE 1024
+#define NPIDS 3
 
 static struct proc_dir_entry *dir;
 static struct proc_dir_entry *file;
 static struct proc_dir_entry *sym;
 
-static char fortune_buf[BUF_SIZE];
-static int fpid = -1;
-#define PARSE_SIZE 16
+static int pids[NPIDS] = {-1, -1, -1};
+static int ind_pid = 0;
+// static char fortune_buf[BUF_SIZE];
+// static int fpid = -1;
+// #define PARSE_SIZE 16
 
 static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 {
@@ -135,7 +138,7 @@ static int proc_open(struct inode *inode, struct file *file) {
 
 static int proc_release(struct inode *inode, struct file *file) {
     printk(KERN_INFO "+ proc_release\n");
-    return 0;
+    return seq_release(inode, file);
 }
 
 static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff_t *offset) {
@@ -153,6 +156,11 @@ static ssize_t proc_write(struct file *filp, const char __user *buf, size_t coun
     if (copy_from_user(ubuf, buf, count))
         return -EFAULT;
 
+    count = sscanf(buf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
+    if (count != NPIDS)
+    {
+        return -EINVAL;
+    }
     if (kstrtoint(ubuf, 10, &fpid))
         return -EINVAL;
 

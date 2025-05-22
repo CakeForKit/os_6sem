@@ -27,7 +27,7 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 {
     size_t offset = 0;
     
-    offset += snprintf(buf + offset, buf_size - offset, "(");
+    // offset += snprintf(buf + offset, buf_size - offset, "(");
     
     if (flags & PF_IDLE) offset += snprintf(buf + offset, buf_size - offset, "IDLE,");
     if (flags & PF_EXITING) offset += snprintf(buf + offset, buf_size - offset, "EXITING,");
@@ -49,7 +49,7 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
     if (flags & PF_MEMALLOC_NOIO) offset += snprintf(buf + offset, buf_size - offset, "MEMALLOC_NOIO,");
     if (flags & PF_NO_SETAFFINITY) offset += snprintf(buf + offset, buf_size - offset, "PF_NO_SETAFFINITY,");
     
-    offset += snprintf(buf + offset, buf_size - offset, ")");
+    // offset += snprintf(buf + offset, buf_size - offset, ")");
     if (offset > strlen("(")) {
         buf[offset-1] = '\0'; 
     }
