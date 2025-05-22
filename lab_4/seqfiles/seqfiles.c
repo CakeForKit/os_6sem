@@ -21,7 +21,7 @@ static struct proc_dir_entry *file;
 static struct proc_dir_entry *sym;
 
 static int pids[NPIDS] = {-1, -1, -1};
-static int ind_pid = 0;
+static int cur_ind = 0;
 // static char fortune_buf[BUF_SIZE];
 // static int fpid = -1;
 // #define PARSE_SIZE 16
@@ -63,6 +63,7 @@ static void *seq_start(struct seq_file *s, loff_t *offset) {
     printk(KERN_INFO "+ seq_start: pos = %Ld.\n", *offset);
     struct task_struct *task;
     int len;
+    int fpid = pids[cur_ind];
     if (*offset > 0 || fpid == -1) {
         return 0;
     }
@@ -96,7 +97,9 @@ static void *seq_start(struct seq_file *s, loff_t *offset) {
 static void *seq_next(struct seq_file *s, void *v, loff_t *pos) {
     printk(KERN_INFO "+ seq_next:  pos = %Ld v = %s.\n", *pos, (char *)v);
 
-    return NULL;
+    cur_ind++;
+    if (cur_ind >= NPIDS) 
+        return NULL;
     // (*pos)++;              //увеличиваем счётчик
     // if (*pos >= limit)     //заканчиваем?
     //     return NULL;
@@ -156,14 +159,11 @@ static ssize_t proc_write(struct file *filp, const char __user *buf, size_t coun
     if (copy_from_user(ubuf, buf, count))
         return -EFAULT;
 
-    count = sscanf(buf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
-    if (count != NPIDS)
-    {
+    res = sscanf(buf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
+    if (res != NPIDS)
         return -EINVAL;
-    }
-    if (kstrtoint(ubuf, 10, &fpid))
-        return -EINVAL;
-
+    
+    *offset = count
     return count;
 }
 
