@@ -29,7 +29,9 @@ res:
 	sudo dmesg |  tail -n300 | grep + > resSeq.txt
 
 run:
-	echo 1 2 3 > /proc/mydir/myf
+	echo 1 > /proc/mydir/myf
+	echo 2 > /proc/mydir/myf
+	echo 3 > /proc/mydir/myf
 	cat /proc/mydir/myf
 
 clean:

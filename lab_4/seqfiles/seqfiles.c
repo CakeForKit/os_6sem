@@ -13,14 +13,15 @@ MODULE_AUTHOR("kathrine");
 #define DIRNAME "mydir"
 #define FILENAME "myf"
 #define SYMNAME "mys"
-#define BUF_SIZE 1024
-#define NPIDS 3
+#define BUF_SIZE 2000
+#define SIZEPIDS 3
 
 static struct proc_dir_entry *dir;
 static struct proc_dir_entry *file;
 static struct proc_dir_entry *sym;
 
-static int pids[NPIDS] = {-1, -1, -1};
+static int pids[SIZEPIDS] = {-1, -1, -1};
+static int npids = 0;
 static int cur_ind = 0;
 static char fortune_buf[BUF_SIZE];
 // static int fpid = -1;
@@ -60,7 +61,7 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 
 static void *seq_start(struct seq_file *m, loff_t *offset) {
     printk(KERN_INFO "+ seq_start: m=%p, pos=%Ld.\n", m, *offset);
-    if (cur_ind == NPIDS)
+    if (cur_ind == SIZEPIDS)
         return NULL;
     return &pids[cur_ind];
 }
@@ -119,7 +120,7 @@ static void *seq_next(struct seq_file *m, void *v, loff_t *pos) {
         return NULL;
     }
     cur_ind++;
-    if (cur_ind >= NPIDS) 
+    if (cur_ind >= SIZEPIDS) 
         return NULL;
     return &pids[cur_ind];
  }
@@ -160,7 +161,6 @@ static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff
 static ssize_t proc_write(struct file *filp, 
     const char __user *buf,
     size_t count, loff_t *offset) {
-    printk(KERN_INFO "+ proc_write: offset=%lld, count=%zu\n", *offset, count);
     if (*offset > 0) {
         return 0;
     }
@@ -170,13 +170,16 @@ static ssize_t proc_write(struct file *filp,
         return -EFAULT;
     ubuf[count] = 0;
 
-    int res = sscanf(ubuf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
-    if (res != NPIDS) {
-        printk(KERN_INFO "+ proc_write: ERR res - %d \n", res);
+    if (kstrtoint(ubuf, 10, &pids[npids]))
         return -EINVAL;
-    }
+    // int res = sscanf(ubuf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
+    // if (res != SIZEPIDS) {
+    //     printk(KERN_INFO "+ proc_write: ERR res - %d \n", res);
+    //     return -EINVAL;
+    // }
 
-    printk(KERN_INFO "+ proc_write: %d %d %d\n", pids[0], pids[1], pids[2]);
+    printk(KERN_INFO "+ proc_write: offset=%lld, count=%zu pid=%d\n", *offset, count, pids[npids]);
+    npids++;
     *offset = count;
     return count;
 }
