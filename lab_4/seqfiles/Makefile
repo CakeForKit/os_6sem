@@ -28,6 +28,10 @@ load:
 res:
 	sudo dmesg |  tail -n300 | grep + > resSeq.txt
 
+run:
+	echo 1 2 3 > /proc/mydir/myf
+	cat /proc/mydir/myf
+
 clean:
 	@rm -f *.o .*.cmd .*.flags *.mod.c *.order
 	@rm -f .*.*.cmd *~ *.*~ TODO.*

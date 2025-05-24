@@ -1,35 +1,61 @@
-[    5.971794] x86/mm: Checked W+X mappings: passed, no W+X pages found.
-[   10.282939] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
-[  575.630246] + init
-[  597.282786] + proc_open
-[  597.282815]  + proc_write: offset=0, count=2
-[  597.282826] + proc_release
-[  603.911671] + proc_open
-[  603.911697] + proc_read: offset=0, count=262144
-[  603.911705] + seq_start: pos = 0.
-[  603.911713] + seq_show
-[  603.911715] + seq_next: v = 000000009b7118b3, pos = 0.
-[  603.911809] + seq_stop
-[  603.911811] + v is null.
-[  603.911907] + proc_read: offset=176, count=262144
-[  603.911912] + seq_start: pos = 1.
-[  603.911915] + seq_stop
-[  603.911916] + v is null.
-[  603.911940] + proc_release
-[  715.216074] + exit
-[  763.223027] + init
-[  768.384206] + proc_open
-[  768.384322] + proc_write: offset=0, count=2
-[  768.384331] + proc_release
-[  772.314487] + proc_open
-[  772.314521] + proc_read: offset=0, count=262144
-[  772.314531] + seq_start: pos = 0.
-[  772.314541] + seq_show
-[  772.314545] + seq_next:  pos = 0 v = pid=1
-[  772.314642] + seq_stop
-[  772.314645] + v is null.
-[  772.315033] + proc_read: offset=169, count=262144
-[  772.315042] + seq_start: pos = 1.
-[  772.315046] + seq_stop
-[  772.315048] + v is null.
-[  772.315076] + proc_release
+[    6.021833] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[   22.367270] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[ 5252.633507] + init
+[ 5255.196600] + proc_open
+[ 5255.196613] + proc_write: offset=0, count=6
+[ 5255.196617] + proc_write: 1 2 3
+[ 5255.196620] + proc_release
+[ 5255.197869] + proc_open
+[ 5255.197881] + proc_read: offset=0, count=262144
+[ 5255.197885] + seq_start: m=00000000e2518e43, pos=0.
+[ 5255.197887] + seq_show: m=00000000e2518e43, v=000000006f0aa013 
+[ 5255.197893] + seq_next: m=00000000e2518e43, v=000000006f0aa013, pos=0 
+[ 5255.197902] + seq_show: m=00000000e2518e43, v=00000000471eef62 
+[ 5255.197907] + seq_next: m=00000000e2518e43, v=00000000471eef62, pos=1 
+[ 5255.197911] + seq_show: m=00000000e2518e43, v=000000000000eb75 
+[ 5255.197915] + seq_next: m=00000000e2518e43, v=000000000000eb75, pos=2 
+[ 5255.197919] + seq_stop: m=00000000e2518e43, v=0000000000000000 
+[ 5255.197982] + proc_read: offset=509, count=262144
+[ 5255.197986] + seq_start: m=00000000e2518e43, pos=3.
+[ 5255.197988] + seq_stop: m=00000000e2518e43, v=0000000000000000 
+[ 5255.198001] + proc_release
+[ 5484.489461] + exit
+[ 5508.616610] + init
+[ 5510.796667] + proc_open
+[ 5510.796680] + proc_write: offset=0, count=6
+[ 5510.796684] + proc_write: 1 2 3
+[ 5510.796687] + proc_release
+[ 5510.798185] + proc_open
+[ 5510.798197] + proc_read: offset=0, count=262144
+[ 5510.798202] + seq_start: m=0000000000102e4c, pos=0.
+[ 5510.798205] + seq_show: m=0000000000102e4c, v=000000006f0aa013 (pid=1)
+[ 5510.798210] + seq_next: m=0000000000102e4c, v=000000006f0aa013 (pid=1)
+[ 5510.798253] + seq_show: m=0000000000102e4c, v=00000000471eef62 (pid=2)
+[ 5510.798257] + seq_next: m=0000000000102e4c, v=00000000471eef62 (pid=2)
+[ 5510.798262] + seq_show: m=0000000000102e4c, v=000000000000eb75 (pid=3)
+[ 5510.798267] + seq_next: m=0000000000102e4c, v=000000000000eb75 (pid=3)
+[ 5510.798272] + seq_stop: m=0000000000102e4c, v=0000000000000000
+[ 5510.798798] + proc_read: offset=512, count=262144
+[ 5510.798801] + seq_start: m=0000000000102e4c, pos=3.
+[ 5510.798804] + seq_stop: m=0000000000102e4c, v=0000000000000000
+[ 5510.798818] + proc_release
+[ 5647.892488] + exit
+[ 5666.177779] + init
+[ 5669.275153] + proc_open
+[ 5669.275182] + proc_write: offset=0, count=6
+[ 5669.275187] + proc_write: 1 2 3
+[ 5669.275191] + proc_release
+[ 5669.276662] + proc_open
+[ 5669.276673] + proc_read: offset=0, count=262144
+[ 5669.276677] + seq_start: m=0000000089cc5704, pos=0.
+[ 5669.276679] + seq_show: m=0000000089cc5704, v=000000006f0aa013 (pid=1)
+[ 5669.276684] + seq_next: m=0000000089cc5704, v=000000006f0aa013 (pid=1)
+[ 5669.276723] + seq_show: m=0000000089cc5704, v=00000000471eef62 (pid=2)
+[ 5669.276726] + seq_next: m=0000000089cc5704, v=00000000471eef62 (pid=2)
+[ 5669.276730] + seq_show: m=0000000089cc5704, v=000000000000eb75 (pid=3)
+[ 5669.276733] + seq_next: m=0000000089cc5704, v=000000000000eb75 (pid=3)
+[ 5669.276736] + seq_stop: m=0000000089cc5704, v=NULL
+[ 5669.277161] + proc_read: offset=512, count=262144
+[ 5669.277164] + seq_start: m=0000000089cc5704, pos=3.
+[ 5669.277165] + seq_stop: m=0000000089cc5704, v=NULL
+[ 5669.277176] + proc_release

@@ -203,9 +203,9 @@ struct seq_file {
 	char *buf;
 	size_t size;
 	size_t from;
-	size_t count;
+	size_t count;	// текущее количество данных, доступных для чтения из буфера buf на данный момент.
 	...
-	loff_t index;
+	loff_t index;	// хранит смещение в файле
 	loff_t read_pos;
 	struct mutex lock;  // В любой структуре есть поле для реализации монопольного доступа
 	const struct seq_operations *op;    // операции которые определены на seq_file

@@ -22,9 +22,9 @@ static struct proc_dir_entry *sym;
 
 static int pids[NPIDS] = {-1, -1, -1};
 static int cur_ind = 0;
-// static char fortune_buf[BUF_SIZE];
+static char fortune_buf[BUF_SIZE];
 // static int fpid = -1;
-// #define PARSE_SIZE 16
+#define PARSE_SIZE 16
 
 static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 {
@@ -58,31 +58,42 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
     }
 }
 
-// Первый вызов	Инициализация итерации
-static void *seq_start(struct seq_file *s, loff_t *offset) {
-    printk(KERN_INFO "+ seq_start: pos = %Ld.\n", *offset);
-    struct task_struct *task;
-    int len;
-    int fpid = pids[cur_ind];
-    if (*offset > 0 || fpid == -1) {
+static void *seq_start(struct seq_file *m, loff_t *offset) {
+    printk(KERN_INFO "+ seq_start: m=%p, pos=%Ld.\n", m, *offset);
+    if (cur_ind == NPIDS)
+        return NULL;
+    return &pids[cur_ind];
+}
+
+static int seq_show(struct seq_file *m, void *v) {
+    int* pv = (int *)v;
+    if (pv != NULL) 
+        printk(KERN_INFO "+ seq_show: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+    else {
+        printk(KERN_INFO "+ seq_show: m=%p, v=NULL\n", m);
+        return -EINVAL;
+    }
+    
+    int fpid = *pv;
+    if (fpid == -1) {
         return 0;
     }
 
-    task = pid_task(find_vpid(fpid), PIDTYPE_PID);
+    struct task_struct *task = pid_task(find_vpid(fpid), PIDTYPE_PID);
     if (task == NULL) {
-        seq_printf(s, "No such pid %d\n", fpid);
-        return NULL;
+        seq_printf(m, "No such pid %d\n", fpid);
+        return 0;
     }
 
     char flags[BUF_SIZE];
     parse_task_flags(task->flags, flags, BUF_SIZE);
-    len = snprintf(fortune_buf, BUF_SIZE, 
+    int len = snprintf(fortune_buf, BUF_SIZE, 
         "pid=%d\nppid=%d\n"
         "comm=%s\npcomm=%s\n"
         "state=%d\nprio=%d\npolicy=%d\n" 
         "exit_state=%d\nexit_code=%d\nexit_signal=%d\n"
         "utime=%llu\nstime=%llu\n"
-        "flags=%s\n",
+        "flags=%s\n\n",
         task->pid, task->parent->pid,
         task->comm, task->parent->comm,
         task->__state, task->prio, task->policy,
@@ -90,42 +101,39 @@ static void *seq_start(struct seq_file *s, loff_t *offset) {
         task->utime, task->stime,
         flags
     );
-    return fortune_buf;
+    if (len < 0) {
+        return -EFAULT;
+    }
+
+    seq_printf(m, fortune_buf);
+    return 0;
 }
 
-// Последующие вызовы	Переход к следующему элементу
-static void *seq_next(struct seq_file *s, void *v, loff_t *pos) {
-    printk(KERN_INFO "+ seq_next:  pos = %Ld v = %s.\n", *pos, (char *)v);
 
+static void *seq_next(struct seq_file *m, void *v, loff_t *pos) {
+    int* pv = (int *)v;
+    if (pv != NULL) 
+        printk(KERN_INFO "+ seq_next: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+    else {
+        printk(KERN_INFO "+ seq_next: m=%p, v=NULL\n", m);
+        return NULL;
+    }
     cur_ind++;
     if (cur_ind >= NPIDS) 
         return NULL;
-    // (*pos)++;              //увеличиваем счётчик
-    // if (*pos >= limit)     //заканчиваем?
-    //     return NULL;
-
-    // *(int*)v += 2;         //переходим к следующему чётному
-
-    // return v;
+    return &pids[cur_ind];
  }
 
 // После завершения	Освобождение ресурсов
-static void seq_stop(struct seq_file *s, void *v) {
-    printk(KERN_INFO "+ seq_stop");
-
-    if (v)
-        printk(KERN_INFO "v is %pX.\n", v);
-    else
-        printk(KERN_INFO "v is null.\n");
+static void seq_stop(struct seq_file *m, void *v) {
+    int* pv = (int *)v;
+    if (pv != NULL) 
+        printk(KERN_INFO "+ seq_stop: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+    else 
+        printk(KERN_INFO "+ seq_stop: m=%p, v=NULL\n", m);
 }
 
-// Для каждого элемента	Форматированный вывод
-static int seq_show(struct seq_file *s, void *v) {
-    printk(KERN_INFO "+ seq_show\n");
-    
-    seq_printf(s, (char *)v);
-    return 0;
-}
+
 
 const struct seq_operations seq_ops = {
     .start = seq_start,
@@ -149,7 +157,9 @@ static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff
     return seq_read(filp, buf, count, offset);
 }
 
-static ssize_t proc_write(struct file *filp, const char __user *buf, size_t count, loff_t *offset) {
+static ssize_t proc_write(struct file *filp, 
+    const char __user *buf,
+    size_t count, loff_t *offset) {
     printk(KERN_INFO "+ proc_write: offset=%lld, count=%zu\n", *offset, count);
     if (*offset > 0) {
         return 0;
@@ -158,12 +168,16 @@ static ssize_t proc_write(struct file *filp, const char __user *buf, size_t coun
     char ubuf[PARSE_SIZE];
     if (copy_from_user(ubuf, buf, count))
         return -EFAULT;
+    ubuf[count] = 0;
 
-    res = sscanf(buf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
-    if (res != NPIDS)
+    int res = sscanf(ubuf, "%d %d %d", &pids[0], &pids[1], &pids[2]);
+    if (res != NPIDS) {
+        printk(KERN_INFO "+ proc_write: ERR res - %d \n", res);
         return -EINVAL;
-    
-    *offset = count
+    }
+
+    printk(KERN_INFO "+ proc_write: %d %d %d\n", pids[0], pids[1], pids[2]);
+    *offset = count;
     return count;
 }
 

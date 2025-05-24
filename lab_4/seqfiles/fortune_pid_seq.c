@@ -27,7 +27,7 @@ static int num_pids = 0;
 
 struct iter_state
 {
-    loff_t pos;
+    loff_t pos;my_stopь
     struct task_struct *tasks[MAX_PIDS];
     int current_pid;
 };
@@ -36,7 +36,7 @@ static void *my_start(struct seq_file *m, loff_t *pos)
 {
     struct iter_state *state;
     int i;
-
+ь
     printk(KERN_INFO "++++ START: m=%p, v=%p, pos=%lld\n",
            m, pos, *pos);
 
@@ -79,7 +79,8 @@ static void *my_next(struct seq_file *m, void *v, loff_t *pos)
 {
     struct iter_state *state = v;
 
-    printk(KERN_INFO "++++ NEXT: m=%p, v=%p, pos_ptr=%p, pos=%lld\n", m, v, pos, *pos);
+    printk(KERN_INFO "++++ NEXT: m=%p, v=%p, pos_ptr=%p, pos=%lld\n", 
+        m, v, pos, *pos);
 
     (*pos)++;
     state->current_pid++;
