@@ -97,11 +97,7 @@ static int my_seq_show(struct seq_file *m, void *v)
     return 0;
 }
 
-static int my_seq_open(struct inode *inode, struct file *file)
-{
-    printk(KERN_INFO "---- OPEN\n");
-    return single_open(file, my_seq_show, NULL);
-}
+
 
 static ssize_t my_seq_write(struct file *file,
                           const char __user *buf,
@@ -151,6 +147,12 @@ static ssize_t my_seq_read(struct file *file, char __user *buf, size_t len, loff
 {
     printk(KERN_INFO "---- READ: pos=%lld\n", *ppos);
     return seq_read(file, buf, len, ppos);
+}
+
+static int my_seq_open(struct inode *inode, struct file *file)
+{
+    printk(KERN_INFO "---- OPEN\n");
+    return single_open(file, my_seq_show, NULL);
 }
 
 static int my_seq_release(struct inode *inode, struct file *file)

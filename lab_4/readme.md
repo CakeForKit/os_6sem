@@ -336,10 +336,66 @@ union {
 
 В bootlin перехода на single_show - нет. Таким образом они обозначили интерфейс. Там переход на single_open.
 
-24.04.25 00:09:09
+```C
+static void *single_start(struct seq_file *p, loff_t *pos) {
+	return NULL + (*pos == 0);
+}
+static void *single_next(struct seq_file *p, void *v, loff_t *pos) {
+	++*pos;
+	return NULL;
+}
+static void single_stop(struct seq_file *p, void *v){}
+
+int single_open(struct file *file, int (*show)(struct seq_file *, void *),
+		void *data) {
+	struct seq_operations *op = kmalloc(sizeof(*op), GFP_KERNEL_ACCOUNT);
+	int res = -ENOMEM;
+
+	if (op) {
+		op->start = single_start;
+		op->next = single_next;
+		op->stop = single_stop;
+		op->show = show;
+		res = seq_open(file, op);	// принимаемые параметры не как у обычных open функций
+		if (!res)
+			((struct seq_file *)file->private_data)->private = data;
+		else
+			kfree(op);
+	}
+	return res;
+}
+EXPORT_SYMBOL(single_open);
+```
+[single_open](https://elixir.bootlin.com/linux/v5.16.8/source/fs/seq_file.c#L572)
 
 
+**Почему single-инфтерфейс называется упрощенным?** Потому что в функция single_open за нас инициализируются поля структуры struct seq_operations. Нам этого делать не надо. Мы не должны писать свою функцию start, stop, next. Функцию show нам надо писать
 
+Мы это делали в seq_files, но в интерфейсе single мы от этого освобождены.
+
+У интерфейса есть **ограничения**: с помощью этого интерфейса можно передать не больше 64 Кб данных (16 страниц)
+
+single_open_size(...) - можно определить обьем передаваемых данных
+
+```C
+int single_open_size(struct file *file, int (*show)(struct seq_file *, void *),
+		void *data, size_t size)
+{
+	char *buf = seq_buf_alloc(size);
+	int ret;
+	if (!buf)
+		return -ENOMEM;
+	ret = single_open(file, show, data);
+	if (ret) {
+		kvfree(buf);
+		return ret;
+	}
+	((struct seq_file *)file->private_data)->buf = buf;
+	((struct seq_file *)file->private_data)->size = size;
+	return 0;
+}
+EXPORT_SYMBOL(single_open_size);
+```
 
 ## Основной закон программирования
 Ни одна переменная не может использоваться до обьявления и определения.
