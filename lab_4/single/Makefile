@@ -30,8 +30,8 @@ res:
 
 run:
 	echo 1 > /proc/mydir/myf
-	echo 1 > /proc/mydir/myf
-	echo 1 > /proc/mydir/myf
+	echo 2 > /proc/mydir/myf
+	echo 23 > /proc/mydir/myf
 	cat /proc/mydir/myf
 
 clean:

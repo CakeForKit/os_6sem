@@ -62,7 +62,7 @@ static void parse_task_flags(unsigned int flags, char *buf, size_t buf_size)
 static int my_show(struct seq_file *m, void *v) {
     struct task_struct *task;
     int i, fpid, len;
-    printk(KERN_INFO "+ seq_show: m=%p, v=%p\n", m, v);
+    printk(KERN_INFO "+ my_show: m=%p, v=%p\n", m, v);
     
     for (i = 0; i < npids; ++i) {
         fpid = pids[i];

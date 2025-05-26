@@ -1,137 +1,73 @@
-[ 5252.633507] + init
-[ 5255.196600] + proc_open
-[ 5255.196613] + proc_write: offset=0, count=6
-[ 5255.196617] + proc_write: 1 2 3
-[ 5255.196620] + proc_release
-[ 5255.197869] + proc_open
-[ 5255.197881] + proc_read: offset=0, count=262144
-[ 5255.197885] + seq_start: m=00000000e2518e43, pos=0.
-[ 5255.197887] + seq_show: m=00000000e2518e43, v=000000006f0aa013 
-[ 5255.197893] + seq_next: m=00000000e2518e43, v=000000006f0aa013, pos=0 
-[ 5255.197902] + seq_show: m=00000000e2518e43, v=00000000471eef62 
-[ 5255.197907] + seq_next: m=00000000e2518e43, v=00000000471eef62, pos=1 
-[ 5255.197911] + seq_show: m=00000000e2518e43, v=000000000000eb75 
-[ 5255.197915] + seq_next: m=00000000e2518e43, v=000000000000eb75, pos=2 
-[ 5255.197919] + seq_stop: m=00000000e2518e43, v=0000000000000000 
-[ 5255.197982] + proc_read: offset=509, count=262144
-[ 5255.197986] + seq_start: m=00000000e2518e43, pos=3.
-[ 5255.197988] + seq_stop: m=00000000e2518e43, v=0000000000000000 
-[ 5255.198001] + proc_release
-[ 5484.489461] + exit
-[ 5508.616610] + init
-[ 5510.796667] + proc_open
-[ 5510.796680] + proc_write: offset=0, count=6
-[ 5510.796684] + proc_write: 1 2 3
-[ 5510.796687] + proc_release
-[ 5510.798185] + proc_open
-[ 5510.798197] + proc_read: offset=0, count=262144
-[ 5510.798202] + seq_start: m=0000000000102e4c, pos=0.
-[ 5510.798205] + seq_show: m=0000000000102e4c, v=000000006f0aa013 (pid=1)
-[ 5510.798210] + seq_next: m=0000000000102e4c, v=000000006f0aa013 (pid=1)
-[ 5510.798253] + seq_show: m=0000000000102e4c, v=00000000471eef62 (pid=2)
-[ 5510.798257] + seq_next: m=0000000000102e4c, v=00000000471eef62 (pid=2)
-[ 5510.798262] + seq_show: m=0000000000102e4c, v=000000000000eb75 (pid=3)
-[ 5510.798267] + seq_next: m=0000000000102e4c, v=000000000000eb75 (pid=3)
-[ 5510.798272] + seq_stop: m=0000000000102e4c, v=0000000000000000
-[ 5510.798798] + proc_read: offset=512, count=262144
-[ 5510.798801] + seq_start: m=0000000000102e4c, pos=3.
-[ 5510.798804] + seq_stop: m=0000000000102e4c, v=0000000000000000
-[ 5510.798818] + proc_release
-[ 5647.892488] + exit
-[ 5666.177779] + init
-[ 5669.275153] + proc_open
-[ 5669.275182] + proc_write: offset=0, count=6
-[ 5669.275187] + proc_write: 1 2 3
-[ 5669.275191] + proc_release
-[ 5669.276662] + proc_open
-[ 5669.276673] + proc_read: offset=0, count=262144
-[ 5669.276677] + seq_start: m=0000000089cc5704, pos=0.
-[ 5669.276679] + seq_show: m=0000000089cc5704, v=000000006f0aa013 (pid=1)
-[ 5669.276684] + seq_next: m=0000000089cc5704, v=000000006f0aa013 (pid=1)
-[ 5669.276723] + seq_show: m=0000000089cc5704, v=00000000471eef62 (pid=2)
-[ 5669.276726] + seq_next: m=0000000089cc5704, v=00000000471eef62 (pid=2)
-[ 5669.276730] + seq_show: m=0000000089cc5704, v=000000000000eb75 (pid=3)
-[ 5669.276733] + seq_next: m=0000000089cc5704, v=000000000000eb75 (pid=3)
-[ 5669.276736] + seq_stop: m=0000000089cc5704, v=NULL
-[ 5669.277161] + proc_read: offset=512, count=262144
-[ 5669.277164] + seq_start: m=0000000089cc5704, pos=3.
-[ 5669.277165] + seq_stop: m=0000000089cc5704, v=NULL
-[ 5669.277176] + proc_release
-[ 6115.659373] + exit
-[ 6135.964549] + init
-[ 6139.889646] + proc_open
-[ 6139.889663] + proc_write: offset=0, count=2
-[ 6139.889666] + proc_write: pid=1
-[ 6139.889668] + proc_release
-[ 6139.892473] + proc_open
-[ 6139.892485] + proc_write: offset=0, count=2
-[ 6139.892487] + proc_write: pid=2
-[ 6139.892490] + proc_release
-[ 6139.896137] + proc_open
-[ 6139.896265] + proc_write: offset=0, count=2
-[ 6139.896299] + proc_write: pid=3
-[ 6139.896303] + proc_release
-[ 6139.897864] + proc_open
-[ 6139.897876] + proc_read: offset=0, count=262144
-[ 6139.897880] + seq_start: m=000000007258b203, pos=0.
-[ 6139.897883] + seq_show: m=000000007258b203, v=000000006f0aa013 (pid=1)
-[ 6139.897888] + seq_next: m=000000007258b203, v=000000006f0aa013 (pid=1)
-[ 6139.897897] + seq_show: m=000000007258b203, v=00000000471eef62 (pid=2)
-[ 6139.897900] + seq_next: m=000000007258b203, v=00000000471eef62 (pid=2)
-[ 6139.897903] + seq_show: m=000000007258b203, v=000000000000eb75 (pid=3)
-[ 6139.897906] + seq_next: m=000000007258b203, v=000000000000eb75 (pid=3)
-[ 6139.897909] + seq_stop: m=000000007258b203, v=NULL
-[ 6139.897979] + proc_read: offset=512, count=262144
-[ 6139.897982] + seq_start: m=000000007258b203, pos=3.
-[ 6139.897984] + seq_stop: m=000000007258b203, v=NULL
-[ 6139.897999] + proc_release
-[ 6276.940626] + exit
-[ 6283.731753] + init
-[ 6285.563343] + proc_open
-[ 6285.563366] + proc_write: offset=0, count=2 pid=1
-[ 6285.563371] + proc_release
-[ 6285.566469] + proc_open
-[ 6285.566486] + proc_write: offset=0, count=2 pid=2
-[ 6285.566490] + proc_release
-[ 6285.569559] + proc_open
-[ 6285.569574] + proc_write: offset=0, count=2 pid=3
-[ 6285.569578] + proc_release
-[ 6285.571170] + proc_open
-[ 6285.571183] + proc_read: offset=0, count=262144
-[ 6285.571188] + seq_start: m=00000000c8d75bfd, pos=0.
-[ 6285.571190] + seq_show: m=00000000c8d75bfd, v=000000006f0aa013 (pid=1)
-[ 6285.571195] + seq_next: m=00000000c8d75bfd, v=000000006f0aa013 (pid=1)
-[ 6285.571203] + seq_show: m=00000000c8d75bfd, v=00000000471eef62 (pid=2)
-[ 6285.571206] + seq_next: m=00000000c8d75bfd, v=00000000471eef62 (pid=2)
-[ 6285.571210] + seq_show: m=00000000c8d75bfd, v=000000000000eb75 (pid=3)
-[ 6285.571243] + seq_next: m=00000000c8d75bfd, v=000000000000eb75 (pid=3)
-[ 6285.571247] + seq_stop: m=00000000c8d75bfd, v=NULL
-[ 6285.571299] + proc_read: offset=512, count=262144
-[ 6285.571301] + seq_start: m=00000000c8d75bfd, pos=3.
-[ 6285.571302] + seq_stop: m=00000000c8d75bfd, v=NULL
-[ 6285.571327] + proc_release
-[ 6347.227031] + exit
-[ 6356.308472] + init
-[ 6367.969144] + proc_open
-[ 6367.969162] + proc_write: offset=0, count=2 pid=1
-[ 6367.969167] + proc_release
-[ 6372.379281] + proc_open
-[ 6372.379301] + proc_write: offset=0, count=3 pid=23
-[ 6372.379307] + proc_release
-[ 6376.253074] + proc_open
-[ 6376.253092] + proc_write: offset=0, count=3 pid=24
-[ 6376.253097] + proc_release
-[ 6382.419077] + proc_open
-[ 6382.419106] + proc_read: offset=0, count=262144
-[ 6382.419150] + seq_start: m=00000000c8d75bfd, pos=0.
-[ 6382.419154] + seq_show: m=00000000c8d75bfd, v=000000006f0aa013 (pid=1)
-[ 6382.419329] + seq_next: m=00000000c8d75bfd, v=000000006f0aa013 (pid=1)
-[ 6382.419340] + seq_show: m=00000000c8d75bfd, v=00000000471eef62 (pid=23)
-[ 6382.419344] + seq_next: m=00000000c8d75bfd, v=00000000471eef62 (pid=23)
-[ 6382.419347] + seq_show: m=00000000c8d75bfd, v=000000000000eb75 (pid=24)
-[ 6382.419351] + seq_next: m=00000000c8d75bfd, v=000000000000eb75 (pid=24)
-[ 6382.419354] + seq_stop: m=00000000c8d75bfd, v=NULL
-[ 6382.419475] + proc_read: offset=547, count=262144
-[ 6382.419488] + seq_start: m=00000000c8d75bfd, pos=3.
-[ 6382.419492] + seq_stop: m=00000000c8d75bfd, v=NULL
-[ 6382.419510] + proc_release
+[    7.224359] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[  178.829333] + init
+[  425.281345] + exit
+[  435.945407] + init
+[  440.461138] + proc_open
+[  440.461180] + proc_write: offset=0, count=2 pid=1
+[  440.461191] + proc_release
+[  440.472702] + proc_open
+[  440.472738] + proc_write: offset=0, count=2 pid=2
+[  440.472748] + proc_release
+[  440.481817] + proc_open
+[  440.482200] + proc_write: offset=0, count=2 pid=3
+[  440.482212] + proc_release
+[  440.486549] + proc_open
+[  440.486579] + proc_read: offset=0, count=262144
+[  440.486589] + seq_start: m=00000000e6beaba4, pos=0.
+[  440.486596] + seq_show: m=00000000e6beaba4, v=00000000e81fd042 (pid=1)
+[  440.486607] + seq_next: m=00000000e6beaba4, v=00000000e81fd042 (pid=1)
+[  440.486708] + seq_show: m=00000000e6beaba4, v=000000009899e328 (pid=2)
+[  440.486717] + seq_next: m=00000000e6beaba4, v=000000009899e328 (pid=2)
+[  440.486728] + seq_show: m=00000000e6beaba4, v=000000000527c6ed (pid=3)
+[  440.486736] + seq_next: m=00000000e6beaba4, v=000000000527c6ed (pid=3)
+[  440.486746] + seq_stop: m=00000000e6beaba4, v=NULL
+[  440.488267] + proc_read: offset=434, count=262144
+[  440.488274] + seq_start: m=00000000e6beaba4, pos=3.
+[  440.488280] + seq_stop: m=00000000e6beaba4, v=NULL
+[  440.488307] + proc_release
+[  814.443429] RIP: 0010:smp_call_function_many_cond+0x2c0/0x4a0
+[  814.444026]  ? __pfx_flush_tlb_func+0x10/0x10
+[  814.444202]  on_each_cpu_cond_mask+0x24/0x40
+[  814.444209]  flush_tlb_mm_range+0xfc/0x190
+[  814.444216]  tlb_finish_mmu+0x79/0x1e0
+[  814.444479]  zap_page_range_single+0x117/0x1a0
+[  814.444575]  madvise_vma_behavior+0x97f/0xa70
+[  814.444689]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  814.444697]  madvise_walk_vmas+0xc8/0x140
+[  814.444706]  do_madvise+0x225/0x470
+[  814.444716]  ? __count_memcg_events+0xb0/0x150
+[  814.444815]  __x64_sys_madvise+0x2b/0x40
+[  814.444821]  do_syscall_64+0x7b/0x190
+[  814.445091]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445276]  ? do_user_addr_fault+0x36c/0x640
+[  814.445286]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445289]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445293]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
+[  814.445335]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[ 1184.153227] + exit
+
+
+[ 1274.493441] + init
+[ 1300.184663] + proc_open
+[ 1300.184694] + proc_write: offset=0, count=2 pid=1
+[ 1300.184704] + proc_release
+[ 1304.381009] + proc_open
+[ 1304.381042] + proc_write: offset=0, count=2 pid=2
+[ 1304.381049] + proc_release
+[ 1309.813289] + proc_open
+[ 1309.813322] + proc_write: offset=0, count=3 pid=23
+[ 1309.813333] + proc_release
+[ 1316.752755] + proc_open
+[ 1316.752779] + proc_read: offset=0, count=262144
+[ 1316.752862] + seq_start: m=000000004c77d86d, pos=0.
+[ 1316.752869] + seq_show: m=000000004c77d86d, v=00000000e81fd042
+[ 1316.752879] + seq_next: m=000000004c77d86d, v=00000000e81fd042 pos=0
+[ 1316.752898] + seq_show: m=000000004c77d86d, v=000000009899e328
+[ 1316.752904] + seq_next: m=000000004c77d86d, v=000000009899e328 pos=1
+[ 1316.752911] + seq_show: m=000000004c77d86d, v=000000000527c6ed
+[ 1316.752917] + seq_next: m=000000004c77d86d, v=000000000527c6ed pos=2
+[ 1316.752924] + seq_stop: m=000000004c77d86d, v=NULL
+[ 1316.752969] + proc_read: offset=447, count=262144
+[ 1316.752973] + seq_start: m=000000004c77d86d, pos=3.
+[ 1316.752976] + seq_stop: m=000000004c77d86d, v=NULL
+[ 1316.752996] + proc_release

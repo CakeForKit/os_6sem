@@ -69,7 +69,7 @@ static void *seq_start(struct seq_file *m, loff_t *offset) {
 static int seq_show(struct seq_file *m, void *v) {
     int* pv = (int *)v;
     if (pv != NULL) 
-        printk(KERN_INFO "+ seq_show: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+        printk(KERN_INFO "+ seq_show: m=%p, v=%p\n", m, v);
     else {
         printk(KERN_INFO "+ seq_show: m=%p, v=NULL\n", m);
         return -EINVAL;
@@ -114,7 +114,7 @@ static int seq_show(struct seq_file *m, void *v) {
 static void *seq_next(struct seq_file *m, void *v, loff_t *pos) {
     int* pv = (int *)v;
     if (pv != NULL) 
-        printk(KERN_INFO "+ seq_next: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+        printk(KERN_INFO "+ seq_next: m=%p, v=%p pos=%llu\n", m, v, *pos);
     else {
         printk(KERN_INFO "+ seq_next: m=%p, v=NULL\n", m);
         return NULL;
@@ -125,11 +125,11 @@ static void *seq_next(struct seq_file *m, void *v, loff_t *pos) {
     return &pids[cur_ind];
  }
 
-// После завершения	Освобождение ресурсов
+ 
 static void seq_stop(struct seq_file *m, void *v) {
     int* pv = (int *)v;
     if (pv != NULL) 
-        printk(KERN_INFO "+ seq_stop: m=%p, v=%p (pid=%d)\n", m, v, *pv);
+        printk(KERN_INFO "+ seq_stop: m=%p, v=%p\n", m, v);
     else 
         printk(KERN_INFO "+ seq_stop: m=%p, v=NULL\n", m);
 }

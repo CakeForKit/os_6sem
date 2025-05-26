@@ -1,56 +1,105 @@
-[37088.571326] + init
-[37163.216378] + open
-[37163.216422] + write: offset=0, count=2 pid=1
-[37163.216431] + release
-[37166.240211] + open
-[37166.240250] + write: offset=0, count=2 pid=1
-[37166.240259] + release
-[37166.772085] + open
-[37166.772104] + write: offset=0, count=2 pid=1
-[37166.772111] + release
-[37171.322873] + open
-[37171.322897] + read: offset=0, count=131072
-[37171.322904] + seq_show: m=0000000011508171, v=00000000fde39531
-[37171.322987] + read: offset=172, count=131072
-[37171.323013] + release
-[37245.363561] + open
-[37245.363580] + read: offset=0, count=131072
-[37245.363585] + seq_show: m=0000000058049939, v=00000000fde39531
-[37245.363652] + read: offset=172, count=131072
-[37245.363669] + release
-[37247.483816] + open
-[37314.883455] + exit
-[37314.883463] + release
-[37374.540410] + init
-[37559.765474] + exit
-[37819.357074] + init
-[37823.229221] + open
-[37823.229242] + write: offset=0, count=2 pid=1
-[37823.229278] + release
-[37823.230658] + open
-[37823.230677] + write: offset=0, count=2 pid=1
-[37823.230682] + release
-[37823.231934] + open
-[37823.231951] + write: offset=0, count=2 pid=1
-[37823.231957] + release
-[37823.233716] + open
-[37823.233738] + read: offset=0, count=131072
-[37823.233745] + seq_show: m=000000006c76c36a, v=00000000fde39531
-[37823.233836] + read: offset=138, count=131072
-[37823.233859] + release
-[37838.700969] + exit
-[37848.088754] + init
-[37850.106873] + open
-[37850.106895] + write: offset=0, count=2 pid=1
-[37850.106903] + release
-[37850.108381] + open
-[37850.108401] + write: offset=0, count=2 pid=1
-[37850.108406] + release
-[37850.110083] + open
-[37850.110101] + write: offset=0, count=2 pid=1
-[37850.110107] + release
-[37850.111877] + open
-[37850.111912] + read: offset=0, count=131072
-[37850.111986] + seq_show: m=000000000ced1d15, v=00000000fde39531
-[37850.112084] + read: offset=414, count=131072
-[37850.112102] + release
+[    7.224359] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[  178.829333] + init
+[  425.281345] + exit
+[  435.945407] + init
+[  440.461138] + proc_open
+[  440.461180] + proc_write: offset=0, count=2 pid=1
+[  440.461191] + proc_release
+[  440.472702] + proc_open
+[  440.472738] + proc_write: offset=0, count=2 pid=2
+[  440.472748] + proc_release
+[  440.481817] + proc_open
+[  440.482200] + proc_write: offset=0, count=2 pid=3
+[  440.482212] + proc_release
+[  440.486549] + proc_open
+[  440.486579] + proc_read: offset=0, count=262144
+[  440.486589] + seq_start: m=00000000e6beaba4, pos=0.
+[  440.486596] + seq_show: m=00000000e6beaba4, v=00000000e81fd042 (pid=1)
+[  440.486607] + seq_next: m=00000000e6beaba4, v=00000000e81fd042 (pid=1)
+[  440.486708] + seq_show: m=00000000e6beaba4, v=000000009899e328 (pid=2)
+[  440.486717] + seq_next: m=00000000e6beaba4, v=000000009899e328 (pid=2)
+[  440.486728] + seq_show: m=00000000e6beaba4, v=000000000527c6ed (pid=3)
+[  440.486736] + seq_next: m=00000000e6beaba4, v=000000000527c6ed (pid=3)
+[  440.486746] + seq_stop: m=00000000e6beaba4, v=NULL
+[  440.488267] + proc_read: offset=434, count=262144
+[  440.488274] + seq_start: m=00000000e6beaba4, pos=3.
+[  440.488280] + seq_stop: m=00000000e6beaba4, v=NULL
+[  440.488307] + proc_release
+[  814.443429] RIP: 0010:smp_call_function_many_cond+0x2c0/0x4a0
+[  814.444026]  ? __pfx_flush_tlb_func+0x10/0x10
+[  814.444202]  on_each_cpu_cond_mask+0x24/0x40
+[  814.444209]  flush_tlb_mm_range+0xfc/0x190
+[  814.444216]  tlb_finish_mmu+0x79/0x1e0
+[  814.444479]  zap_page_range_single+0x117/0x1a0
+[  814.444575]  madvise_vma_behavior+0x97f/0xa70
+[  814.444689]  ? __pfx_madvise_vma_behavior+0x10/0x10
+[  814.444697]  madvise_walk_vmas+0xc8/0x140
+[  814.444706]  do_madvise+0x225/0x470
+[  814.444716]  ? __count_memcg_events+0xb0/0x150
+[  814.444815]  __x64_sys_madvise+0x2b/0x40
+[  814.444821]  do_syscall_64+0x7b/0x190
+[  814.445091]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445276]  ? do_user_addr_fault+0x36c/0x640
+[  814.445286]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445289]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  814.445293]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
+[  814.445335]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[ 1184.153227] + exit
+[ 1274.493441] + init
+[ 1300.184663] + proc_open
+[ 1300.184694] + proc_write: offset=0, count=2 pid=1
+[ 1300.184704] + proc_release
+[ 1304.381009] + proc_open
+[ 1304.381042] + proc_write: offset=0, count=2 pid=2
+[ 1304.381049] + proc_release
+[ 1309.813289] + proc_open
+[ 1309.813322] + proc_write: offset=0, count=3 pid=23
+[ 1309.813333] + proc_release
+[ 1316.752755] + proc_open
+[ 1316.752779] + proc_read: offset=0, count=262144
+[ 1316.752862] + seq_start: m=000000004c77d86d, pos=0.
+[ 1316.752869] + seq_show: m=000000004c77d86d, v=00000000e81fd042
+[ 1316.752879] + seq_next: m=000000004c77d86d, v=00000000e81fd042 pos=0
+[ 1316.752898] + seq_show: m=000000004c77d86d, v=000000009899e328
+[ 1316.752904] + seq_next: m=000000004c77d86d, v=000000009899e328 pos=1
+[ 1316.752911] + seq_show: m=000000004c77d86d, v=000000000527c6ed
+[ 1316.752917] + seq_next: m=000000004c77d86d, v=000000000527c6ed pos=2
+[ 1316.752924] + seq_stop: m=000000004c77d86d, v=NULL
+[ 1316.752969] + proc_read: offset=447, count=262144
+[ 1316.752973] + seq_start: m=000000004c77d86d, pos=3.
+[ 1316.752976] + seq_stop: m=000000004c77d86d, v=NULL
+[ 1316.752996] + proc_release
+[ 2682.122577] + exit
+[ 2760.234600] + init
+[ 2813.937447] + open
+[ 2813.937473] + write: offset=0, count=2 pid=1
+[ 2813.937480] + release
+[ 2818.179790] + open
+[ 2818.179822] + write: offset=0, count=2 pid=2
+[ 2818.179833] + release
+[ 2824.663937] + open
+[ 2824.663969] + write: offset=0, count=3 pid=23
+[ 2824.664310] + release
+[ 2839.933439] + open
+[ 2839.933485] + read: offset=0, count=262144
+[ 2839.933495] + seq_show: m=000000001e64eee3, v=000000003f38a0ed
+[ 2839.935120] + read: offset=447, count=262144
+[ 2839.935156] + release
+[ 2922.881102] + exit
+
+
+[ 2950.607885] + init
+[ 2955.820851] + open
+[ 2955.821250] + write: offset=0, count=2 pid=1
+[ 2955.821265] + release
+[ 2958.341380] + open
+[ 2958.341426] + write: offset=0, count=2 pid=2
+[ 2958.341434] + release
+[ 2961.714262] + open
+[ 2961.714365] + write: offset=0, count=3 pid=23
+[ 2961.714466] + release
+[ 2965.945251] + open
+[ 2965.945283] + read: offset=0, count=262144
+[ 2965.945293] + my_show: m=00000000131ea45f, v=000000003f38a0ed
+[ 2965.945360] + read: offset=447, count=262144
+[ 2965.945602] + release
