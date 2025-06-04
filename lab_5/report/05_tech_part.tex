@@ -1,0 +1,269 @@
+\chapter{Технологическая часть}
+
+В данном разделе представлены средства реализации, листинг разрабатываемой функции, описаны интерфейс приложения и методы тестирования.
+
+\section{Средства реализации}
+
+В качестве системы управления базами данных(СУБД) был выбран PostgreSQL~\cite{postgres}, так как является реляционной СУБД, имеет открытую лицензию и с ним имеется опыт работы.
+ 
+Для написания приложения использовался язык программирования Go~\cite{golang}. Построение SQL-запросов производилось с использованием пакета Squirrel~\cite{squirrel}. Тестирование~--~с использованием пакета Testify~\cite{testify}.
+
+Для развертывания приложения и базы данных использовались контейнеры Docker~\cite{docker}.
+
+
+
+\section{Детали реализации}
+
+Реализация сущностей и ограничений базы данных, описанный в конструкторской части, представлена в приложении А в листинге~\hyperref[lst:createdb]{А.1}.
+
+В приложении А в листинге~\hyperref[lst:roles]{А.2} представлена реализация ролевой модели базы данных, которая состоит из ролей пользователя (user\_role), сотрудника (employee\_role) и администратора (admin\_role).
+
+\section{Описание реализованной функции}
+
+В листинге~\ref{lst:sqlfunc} представлена реализация функции, возвращающей мероприятия в которых участвует определенный экспонат в определенный период.
+
+\begin{lstlisting}[style=sql, caption={Реализация функции}, label=lst:sqlfunc]
+CREATE OR REPLACE FUNCTION get_event_of_artwork(
+	idArtwork UUID, 
+	dateBeginSee TIMESTAMP, 
+	dateEndSee TIMESTAMP)
+RETURNS TABLE (
+	event_id UUID,
+	title VARCHAR(255),
+	dateBegin TIMESTAMP,
+	dateEnd TIMESTAMP,
+	canVisit BOOLEAN,
+	adress VARCHAR(255),
+	cntTickets INT,
+	creatorID UUID
+) AS $$
+	SELECT e.id, e.title, e.dateBegin, e.dateEnd, e.canVisit, e.adress, e.cntTickets, e.creatorID
+	FROM Events e
+	JOIN Artwork_event ae 
+	ON e.id = ae.eventID
+	WHERE ae.artworkID = idArtwork
+		AND e.dateBegin <= dateEndSee
+		AND e.dateEnd >= dateBeginSee;
+$$ LANGUAGE sql;
+\end{lstlisting}
+
+\section{Тестирование}
+
+Тестирование взаимодействия приложения с базой данных выполнялось по следующему алгоритму:
+
+\begin{enumerate}[label={\arabic*)}]
+	\item создавался контейнер с чистой базой данных;
+	\item применялись миграции, для инициализации схемы;
+	\item база данных заполнялась заранее подготовленными тестовыми данными, соответствующими проверяемым сценариям;
+	\item с помощью библиотеки для построения SQL-запросов Squirrel~\cite{squirrel} выполнялся тестируемый запрос;
+	\item полученные данные сравнивались с ожидаемым результатом;
+\end{enumerate}
+
+Для автоматизации тестирования использовался фреймворк Testify~\cite{testify}.
+
+\subsection{Тестирование реализованной функции}
+Для тестирования функции, возвращающей мероприятия в который участвует определенный экспонат в определенный период, были рассмотрены следующие классы эквивалентности:
+\begin{itemize}
+	\item На вход функции подан идентификатор экспоната, которого нет в базе данных;
+	\item Дата начала и дата конца рассматриваемого периода одинаковые;
+	\item Дата начала больше даты конца рассматриваемого периода; 
+	\item Экспонат в рассматриваемый период времени не участвует ни в каких выставках; 
+	\item Экспонат в рассматриваемый период времени не участвует в 1 выставке; 
+	\item Экспонат в рассматриваемый период времени не участвует в нескольких выставках; 
+\end{itemize}
+
+
+\subsection{Результаты тестирования}
+Для тестирования приложения, были разработаны модульные и интеграционные тесты для проверки работы уровней бизнес-логики и доступа к данным.
+
+В качестве меры полноты тестирования был выбран процент покрытия строк кода. Результаты тестирования, были обработаны утилитой cover, которая является элементом стандартного пакета тестирования testing в go~\cite{testing}. Процент покрытия кода составил 29.9\%.
+
+%В качестве меры полноты тестирования был выбран процент покрытия строк кода. Результаты тестирования, были обработаны утилитой~\texttt{lcov}~\cite{lcov} и представленный в таблице~\ref{tbl:resTest}:
+%
+%\begin{longtable}{|
+%		>{\centering\arraybackslash}m{.3\textwidth - 2\tabcolsep}|
+%		>{\centering\arraybackslash}m{.3\textwidth - 2\tabcolsep}|
+%		>{\centering\arraybackslash}m{.4\textwidth - 2\tabcolsep}|
+%	}
+%	\caption{Результаты тестирования}\label{tbl:resTest} \\\hline
+%	Количество протестированных строк кода & Количество строк кода в проекте & Процент покрытия для созданного набора тестов \\\hline
+%	\endfirsthead
+%	\caption*{Продолжение таблицы~\ref{tbl:log} } \\\hline
+%	Количество протестированных строк кода & Количество строк кода в проекте & Процент покрытия для созданного набора тестов \\\hline \\\hline                    
+%	\endhead
+%	\endfoot
+%	2376 & 3096 & 77 \% \\\hline
+%%	Functions & 220 & 463 & 47.5 \% \\\hline
+%	
+%\end{longtable}
+
+\section{Методы взаимодействия с базой данных}
+
+Для взаимодействия с базой данных был реализован программный интерфейс, описанный в таблицах~\ref{tbl:api_public}-\ref{tbl:api_admin}. 
+
+Все API-методы сгруппированы по функциональному назначению и уровню доступа в соответствии с ролевой моделью системы. Публичные методы и методы аутентификации доступны всем пользователям. Для сотрудников музея реализованы эндпоинты позволяющие изменять содержимое таблиц произведений искусств, авторов, коллекций и мероприятий. Для администратора добавлены методы взаимодействия с таблицами сотрудников.
+
+Отправка и получение данных производится в формате JSON, статус запроса передается в виде стандартных HTTP-кодов ответов.
+
+
+\subsection*{Публичные методы}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Публичные методы}\label{tbl:api_public} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_public} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	GET & \texttt{/museum/artworks} & 
+	\textbf{Просмотр} произведений искусства;
+	
+	\textbf{Поиск} по названию экспоната, имени автора, названию коллекции;
+	
+	\textbf{Сортировка} по названию экспоната, имени автора, году создания; \\ \hline
+	
+	GET & \texttt{/museum/events} & 
+	\textbf{Просмотр} событий;
+	
+	\textbf{Поиск} по названию события, времени проведения, возможности посещения;\\ \hline
+	POST & \texttt{\path{/guest/tickets}} & Купить билеты \\\hline
+	PUT & \texttt{\path{/guest/tickets/confirm}} & Подтвердить покупку билетов \\\hline
+	PUT & \texttt{\path{/guest/tickets/cancel}} & Отменить покупку билетов \\\hline
+\end{longtable}
+
+\subsection*{Методы аутентификации}
+API использует схему аутентификации Bearer Token, передаваемого в заголовке \texttt{Authorization}.
+
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Методы аутентификации}\label{tbl:api_auth} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_auth} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	POST & \texttt{/auth-admin/login} & Аутентификация администратора \\\hline
+	POST & \texttt{/auth-employee/login} & Аутентификация сотрудника \\\hline
+%	POST & \texttt{/auth-user/login} & Аутентификация пользователя \\\hline
+%	POST & \texttt{/auth-user/register} & Регистрация нового пользователя \\\hline
+\end{longtable}
+
+\needspace{10\baselineskip}
+\subsection*{Методы доступные сотрудникам музея}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Управление произведениями искусства (Artwork)}\label{tbl:api_art} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_art} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	GET & \texttt{/employee/artworks} & Получить список всех произведений искусства \\\hline
+	POST & \texttt{/employee/artworks} & Добавить новое произведение искусства \\\hline
+	PUT & \texttt{/employee/artworks} & Обновить существующее произведение \\\hline
+	DELETE & \texttt{/employee/artworks} & Удалить произведение искусства \\\hline
+%	GET & \texttt{/museum/artworks} & Поиск произведений искусства (публичный доступ) \\\hline
+\end{longtable}
+
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Управление авторами (Author)}\label{tbl:api_author} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_author} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	GET & \texttt{/employee/authors} & Получить список всех авторов \\\hline
+	POST & \texttt{/employee/authors} & Добавить нового автора \\\hline
+	PUT & \texttt{/employee/authors} & Обновить существующего автора \\\hline
+	DELETE & \texttt{/employee/authors} & Удалить автора \\\hline
+\end{longtable}
+
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Управление коллекциями (Collection)}\label{tbl:api_collection} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_collection} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	GET & \texttt{/employee/collections} & Получить список всех коллекций \\\hline
+	POST & \texttt{/employee/collections} & Создать новую коллекцию \\\hline
+	PUT & \texttt{/employee/collections} & Обновить существующую коллекцию \\\hline
+	DELETE & \texttt{/employee/collections} & Удалить коллекцию \\\hline
+\end{longtable}
+
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Управление событиями (Events)}\label{tbl:api_event} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_event} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	`
+	GET & \texttt{/employee/events} & Получить список всех событий \\\hline
+	POST & \texttt{/employee/events} & Создать новое событие \\\hline
+	PUT & \texttt{/employee/events} & Обновить существующее событие \\\hline
+	DELETE & \texttt{/employee/events} & Удалить событие \\\hline
+%	GET & \texttt{/museum/events} & Поиск событий (публичный доступ) \\\hline
+\end{longtable}
+
+
+\subsection*{Методы доступные администратору}
+\begin{longtable}{|
+		>{\raggedright\arraybackslash}m{.15\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.35\textwidth - 2\tabcolsep}|
+		>{\raggedright\arraybackslash}m{.5\textwidth - 2\tabcolsep}|
+	}
+	\caption{Методы доступные администратору}\label{tbl:api_admin} \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline 
+	\endfirsthead
+	\caption*{Продолжение таблицы~\ref{tbl:api_admin} } \\\hline
+	\textbf{Метод} & \textbf{Путь} & \textbf{Описание} \\\hline            
+	\endhead
+	\endfoot
+	
+	GET & \texttt{\path{/admin/employeelist/}} & Получение списка всех сотрудников \\ \hline
+	PUT & \texttt{\path{/admin/employeelist/change-rights}} & Изменение прав сотрудника \\ \hline
+	POST & \texttt{\path{/admin/employeelist/register-employee}} & Регистрация нового сотрудника \\ \hline
+\end{longtable}
+
+
+
+
+
+%\clearpage
+\section*{Вывод из технологической части}
+Была реализована база данных музея, функция возвращающая выставки, в которых участвует произведение искусства в заданный период, и приложения для взаимодействия с базой данных. Представлены средства реализации, описаны интерфейс приложения и методы тестирования.
+%Было реализовано программное обеспечение и представлены средства реализации, описание алгоритма обратной трассировки лучей, описаны интерфейс приложения и методы тестирования.
+\clearpage

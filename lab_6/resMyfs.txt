@@ -1,0 +1,7 @@
+[    0.472151] usb usb1: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
+[    0.478968] usb usb2: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
+[21638.382559] + myfs: init
+[21638.383042] + myfs: slab cache created
+[21638.383051] + myfs: register_filesystem succeeded
+[21701.986281] + myfs: vfs root created
+[21701.986286] + myfs: mount_bdev succeeded

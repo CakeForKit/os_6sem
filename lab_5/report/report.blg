@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: report.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+A level-1 auxiliary file: 01_referat.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: 02_intro.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: 03_analytic_part.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
+A level-1 auxiliary file: 04_design_part.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: 05_tech_part.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: 06_experimental_part.aux
+Reallocating 'name_of_file' (item size: 1) to 18 items.
+A level-1 auxiliary file: 07_conclusion.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+A level-1 auxiliary file: links.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+The style file: utf8gost705u.bst
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: 08_additions.aux
+Database file #1: lib.bib
+You're missing a field name---line 127 of file lib.bib
+ : 
+ : % author    = {Техническая комиссия ФИДЕ},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 11 entries,
+            2958 wiz_defined-function locations,
+            713 strings with 7397 characters,
+and the built_in function-call counts, 1993 in all, are:
+= -- 240
+> -- 15
+< -- 1
++ -- 12
+- -- 1
+* -- 39
+:= -- 197
+add.period$ -- 24
+call.type$ -- 11
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 131
+empty$ -- 318
+format.name$ -- 1
+if$ -- 583
+int.to.chr$ -- 0
+int.to.str$ -- 11
+missing$ -- 0
+newline$ -- 56
+num.names$ -- 3
+pop$ -- 100
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 64
+stack$ -- 0
+substring$ -- 8
+swap$ -- 35
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 2
+width$ -- 13
+write$ -- 116
+(There was 1 error message)

@@ -1,0 +1,208 @@
+
+% \usepackage{tocloft} % для настройки внешнего вида оглавления, списка рисунков и списка таблиц
+
+\usepackage{cmap} % Улучшенный поиск русских слов в полученном pdf-файле
+\usepackage{tempora} % для работы со шрифтами. Он предоставляет доступ к шрифту Tempora, который является альтернативой шрифту Times New Roman.
+\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage[utf8]{inputenc} % Кодировка utf8
+\usepackage[english,russian]{babel} % Языки: английский, русский
+\usepackage{pdfpages} % добавить готовые PDF-страницы
+\usepackage{placeins} % \FloatBarrier % Позволяет устанавливать барьер для плавающих объектов. После вызова этой команды LaTeX не будет размещать плавающие объекты дальше этой точки в документе, что помогает удерживать таблицы и фигуры в конкретном разделе или подразделе.
+ \usepackage[figure,table]{totalcount} % для подсчета общего количества определенных элементов в документе (в вашем случае - рисунков и таблиц).
+ \usepackage{lastpage} % для получения номера последней страницы документа. 
+
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,float} % доп вещи для математики и списков
+\usepackage{letltxmacro} % безопасный способ переопределения LaTeX-команд
+\usepackage{flafter} % для контроля размещения плавающих объектов - гарантировать, что плавающие объекты появятся только после их упоминания в тексте
+
+\usepackage{needspace} 
+
+\usepackage{geometry}
+\geometry{left=30mm}
+\geometry{right=15mm}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+
+\setlength{\parindent}{1.5cm}
+
+\usepackage{microtype}
+\sloppy	% изменяет поведение системы выравнивания текста, делая ее менее строгой в отношении ограничений на переносы и пробелы. 
+
+\usepackage{setspace}
+\onehalfspacing % Полуторный интервал
+
+\frenchspacing	% использовать **одинаковые** интервалы после предложений и между словами. 
+\usepackage{indentfirst} % Красная строка
+
+% Настройка заголовков
+\makeatletter
+\renewcommand\LARGE{\@setfontsize\LARGE{22pt}{20}}
+\renewcommand\Large{\@setfontsize\Large{20pt}{20}}
+\renewcommand\large{\@setfontsize\large{16pt}{20}}
+\makeatother
+
+\newcommand{\ssr}[1]{\begin{center}
+		\large\bfseries{#1}
+	\end{center} \addcontentsline{toc}{section}{#1}  }
+
+\usepackage{titlesec}
+%\titleformat{команда}{формат}{метка}{отступ}{до-кода}[после-кода]
+%- **команда**: Уровень заголовка, который вы хотите настроить (например, `\chapter`, `\section`, `\subsection` и т.д.).
+%- **формат**: Форматирование самого заголовка (например, размер шрифта, стиль начертания).
+%- **метка**: Текст или номер, отображаемый перед заголовком.
+%- **отступ**: Горизонтальное расстояние между меткой и заголовком.
+%- **до-кода**: Команды, выполняемые непосредственно перед текстом заголовка.
+%- **после-кода** (необязательный): Команды, выполняемые непосредственно после текста заголовка.
+\titleformat{\chapter}{\large\bfseries}{\thechapter}{14pt}{\large\bfseries}
+\titleformat{name=\chapter,numberless}{}{}{0pt}{\large\bfseries\centering}	% к команде `\chapter*{...}`.
+\titleformat{\section}{\large\bfseries}{\thesection}{14pt}{\large\bfseries}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{14pt}{\large\bfseries}
+%\titlespacing{команда}{отступ слева}{отступ перед заголовком}{отступ после заголовка}[отступ справа]
+\titlespacing{\chapter}{12.5mm}{-22pt}{10pt}
+\titlespacing{\section}{12.5mm}{10pt}{10pt}
+\titlespacing{\subsection}{12.5mm}{10pt}{10pt}
+
+% ---------- Таблицы --------------------------------------------------
+\usepackage{longtable} % Длинные таблицы
+\usepackage{array}     % Для расширенных возможностей работы с таблицами
+% \usepackage{threeparttable} %  для создания таблиц с примечаниями, где примечания автоматически подгоняются под ширину таблицы
+
+% Таблица справа (Подпись таблицы)
+\usepackage{caption}
+%\captionsetup[table]{justification=raggedleft,singlelinecheck=off}
+\captionsetup[longtable]{justification=raggedright, singlelinecheck=off}
+
+\usepackage{multirow} % для создания ячеек в таблицах, которые объединяют несколько строк
+% для создания многострочных ячеек в таблицах
+\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+% ---------------------------------------------------------------------
+% ---------- Списки----------------------------------------------------
+\usepackage{enumerate} % Расширяет возможности нумерованных списков
+
+% переопределение маркеров списка
+\usepackage{enumitem}
+\def\labelitemi{---}
+\setlist[itemize]{leftmargin=1.25cm, itemindent=0.65cm}
+\setlist[enumerate]{leftmargin=1.25cm, itemindent=0.55cm}
+
+% нумерованные списки со скобками
+\setenumerate[1]{label={ \arabic*)}}
+% ---------------------------------------------------------------------
+
+
+% ---------- Картинки -------------------------------------------------
+% Рисунок 1 – Пример изображения.
+\captionsetup{labelsep=endash}
+\captionsetup[figure]{name={Рисунок}, justification=centering}
+
+% Создание рисунков
+\usepackage{graphicx}
+\newcommand{\imgScale}[3] {
+	\begin{figure}[h!]
+		\center{\includegraphics[scale=#1]{#2}} % height
+		\caption{#3}
+		\label{img:#2}
+	\end{figure}
+}
+
+\newcommand{\imgh}[3] {
+\begin{figure}[h!]
+    \center{\includegraphics[height=#1]{#2}}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+\newcommand{\imgw}[3] {
+\begin{figure}[h!]
+  \center{\includegraphics[width=#1]{#2}}
+  \caption{#3}
+  \label{img:#2}
+\end{figure}
+}
+
+
+% \newcommand{\imgw}[3]{%
+%     \begin{figure}[ht!]
+%         \centering
+%         \ifx\@draft\@true
+%             \includegraphics[width=0.3\textwidth]{#2}%
+%         \else
+%             \includegraphics[width=#1]{#2}%
+%         \fi
+%         \caption{#3}
+%         \label{img:#2}
+%     \end{figure}
+% }
+
+% % Определяем команду для проверки draft режима
+% \makeatletter
+%\newcommand{\ifdraftmode}{%
+% \if@draft true\else false\fi%
+%}
+% \makeatother
+
+\usepackage{xifthen}
+% \newcommand{\imgw}[3]{
+%     \begin{figure}[ht!]
+%         % \centering
+%         \ifthenelse{\equal{\ifdraftmode}{true}}{
+%             \center{\includegraphics[width=0.3\textwidth]{#2}}
+%         }{
+%             \center{\includegraphics[width=#1]{#2}}
+%         }
+%         \caption{#3}
+%         \label{img:#2}
+%     \end{figure}
+% }
+
+\newcommand{\boximg}[3] {
+\begin{figure}[h]
+    \center{\fbox{\includegraphics[height=#1]{#2}}}
+    \caption{#3}
+    \label{img:#2}
+\end{figure}
+}
+
+% ---------------------------------------------------------------------
+% ---------- Листинг --------------------------------------------------
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{ %
+	%	language=C++,                 % выбор языка для подсветки (здесь это С++)
+	basicstyle=\small\sffamily, % размер и начертание шрифта для подсветки кода
+	%	numbers=left,               % где поставить нумерацию строк (слева\справа)
+	%	numberstyle=\tiny,           % размер шрифта для номеров строк
+	%	stepnumber=1,                   % размер шага между двумя номерами строк
+	%	numbersep=5pt,                % как далеко отстоят номера строк от подсвечиваемого кода
+	showspaces=false,            % показывать или нет пробелы специальными отступами
+	showstringspaces=false,      % показывать или нет пробелы в строках
+	showtabs=false,             % показывать или нет табуляцию в строках
+	frame=single,              % рисовать рамку вокруг кода
+	tabsize=2,                 % размер табуляции по умолчанию равен 2 пробелам
+	captionpos=t,              % позиция заголовка вверху [t] или внизу [b] 
+	breaklines=true,           % автоматически переносить строки (да\нет)
+	breakatwhitespace=false, % переносить строки только если есть пробел
+	escapeinside={\#*}{*)} ,  % если нужно добавить комментарии в коде
+	keywordstyle=\color{purple},          % Стиль ключевых слов
+	commentstyle=\color{dkgreen},       % Стиль комментариев
+	stringstyle=\color{mauve}          % Стиль литералов
+}
+
+% Возможность использовать $ в листингах
+\newcommand{\dlr}{\mbox{\textdollar}}
+% ---------------------------------------------------------------------
+
+% оформление списка источников
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+\makeatother
+ 
+% Ссылки в pdf
+ \usepackage[unicode,pdftex]{hyperref}
+ \hypersetup{hidelinks}  % Скрывает визуальное оформление всех ссылок
+ 
+ \usepackage{cleveref}
+
+
+

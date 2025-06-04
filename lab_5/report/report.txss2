@@ -1,0 +1,154 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "report.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+            {
+                "bookmarkNumber": 1,
+                "fileName": "../../aa/report_template (2)/settings.tex",
+                "lineNumber": 86,
+                "text": "settings.tex\n"
+            },
+            {
+                "bookmarkNumber": 1,
+                "fileName": "../../aa/ped22u691/lab_2/doc/tech_part.tex",
+                "lineNumber": 289,
+                "text": "tech_part.tex\n\\begin{table}[h]"
+            },
+            {
+                "bookmarkNumber": 1,
+                "fileName": "../../cg_cp_info/report/lib.bib",
+                "lineNumber": 8,
+                "text": "lib.bib\n@book{rodgersCG,"
+            }
+        ],
+        "CurrentFile": "02_intro.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 19,
+                "EditorGroup": 0,
+                "FileName": "report.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 19
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "mypreambula.tex",
+                "FirstLine": 97,
+                "FoldedLines": "",
+                "Line": 114
+            },
+            {
+                "Col": 65,
+                "EditorGroup": 0,
+                "FileName": "02_intro.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 17
+            },
+            {
+                "Col": 447,
+                "EditorGroup": 0,
+                "FileName": "03_analytic_part.tex",
+                "FirstLine": 121,
+                "FoldedLines": "58",
+                "Line": 117
+            },
+            {
+                "Col": 13,
+                "EditorGroup": 0,
+                "FileName": "04_design_part.tex",
+                "FirstLine": 75,
+                "FoldedLines": "17,35,55,77",
+                "Line": 122
+            },
+            {
+                "Col": 12,
+                "EditorGroup": 0,
+                "FileName": "lib.bib",
+                "FirstLine": 1,
+                "FoldedLines": "",
+                "Line": 26
+            },
+            {
+                "Col": 19,
+                "EditorGroup": 0,
+                "FileName": "01_referat.tex",
+                "FirstLine": 1,
+                "FoldedLines": "",
+                "Line": 4
+            },
+            {
+                "Col": 197,
+                "EditorGroup": 0,
+                "FileName": "05_tech_part.tex",
+                "FirstLine": 73,
+                "FoldedLines": "",
+                "Line": 81
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "06_experimental_part.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "07_conclusion.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "08_additions.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "links.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "preambula.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "settings.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "report.toc",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 17
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
