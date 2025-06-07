@@ -1,4 +1,4 @@
-NAME_MODULE = myfs
+NAME_MODULE = myfs1
 
 # Если KERNELRELEASE определён, значит вызов сделан из системы сборки ядра.
 ifneq ($(KERNELRELEASE),)
