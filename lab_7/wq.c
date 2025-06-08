@@ -115,7 +115,12 @@ static int __init my_init(void) {
         printk(KERN_ERR "+ workqueue: proc_create failed\n");
         return -ENOMEM;
     }
-    printk(KERN_INFO "+ workqueue: proc file created\n");
+
+    int err = request_irq(IRQ_NUM, my_handler, IRQF_SHARED, "my_wq_handler", &my_handler);
+    if (err) {
+        printk(KERN_ERR "+ workqueue: request_irq failed\n");
+        return -ENOMEM;
+    }
 
     my_wq = alloc_workqueue("my_wq", 0, 0);
     if (!my_wq) {
@@ -124,12 +129,6 @@ static int __init my_init(void) {
     }
     INIT_WORK(&sleep_work, workqueue_sleep);
 
-    int err = request_irq(IRQ_NUM, my_handler, IRQF_SHARED, "my_wq_handler", &my_handler);
-    if (err) {
-        printk(KERN_ERR "+ workqueue: request_irq failed\n");
-        return -ENOMEM;
-    }
-    printk(KERN_INFO "+ workqueue: irq requested\n");
     return 0;
 }
 

@@ -9,18 +9,14 @@ default:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules 
 	make clean
 
-load:
+tload:
 	sudo insmod $(TARGET1).ko 
+
+wload:
 	sudo insmod $(TARGET2).ko 
 	
 res:
 	sudo dmesg |  tail -n300 | grep + > res.txt
-
-run:
-	echo 1 > /proc/mydir/myf
-	echo 2 > /proc/mydir/myf
-	echo 3 > /proc/mydir/myf
-	cat /proc/mydir/myf
 
 clean:
 	@rm -f *.o .*.cmd .*.flags *.mod.c *.order
