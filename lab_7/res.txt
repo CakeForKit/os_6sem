@@ -1,0 +1,5 @@
+[    0.426571] usb usb1: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
+[    0.433233] usb usb2: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
+[ 9674.426096] + workqueue: init
+[ 9674.426119] + workqueue: proc file created
+[ 9674.426702] + workqueue: irq requested
