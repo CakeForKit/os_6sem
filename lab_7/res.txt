@@ -1,5 +1,21 @@
-[    0.426571] usb usb1: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
-[    0.433233] usb usb2: Manufacturer: Linux 5.15.167.4-microsoft-standard-WSL2+ vhci_hcd
-[ 9674.426096] + workqueue: init
-[ 9674.426119] + workqueue: proc file created
-[ 9674.426702] + workqueue: irq requested
+[   10.593317] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[   22.408007] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[  263.431671] + workqueue: init
+[  263.431684] + workqueue: proc file created
+[  263.431752] + workqueue: irq requested
+[  265.944864] + workqueue: code=30, symbol=a
+[  265.944879] + workqueue: sleep
+[  267.968253] + workqueue: wake up
+[  267.968264] + workqueue: sleep
+[  268.178300] + workqueue: code=30, symbol=a
+[  268.348764] + workqueue: code=31, symbol=s
+[  268.418553] + workqueue: code=32, symbol=d
+[  270.015918] + workqueue: wake up
+[  270.015929] + workqueue: sleep
+[  270.566748] + workqueue: code=50, symbol=m
+[  270.671640] + workqueue: code=30, symbol=a
+[  270.792184] + workqueue: code=37, symbol=k
+[  270.904162] + workqueue: code=18, symbol=e
+[  271.087927] + workqueue: code=19, symbol=r
+[  271.208290] + workqueue: code=18, symbol=e
+[  271.302998] + workqueue: code=31, symbol=s

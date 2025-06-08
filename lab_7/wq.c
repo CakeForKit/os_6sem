@@ -17,7 +17,7 @@
 #define SCANCODE_PORT 0x60
 #define STATUS_PORT 0x64
 #define FILENAME "my_wq"
-#define SLEEP_TIME 10000
+#define SLEEP_TIME 2000
 
 MODULE_LICENSE("GPL");
 
@@ -37,11 +37,11 @@ static ktime_t last_kwork_time = 0;
 char * symbs[84] =  {
     " ", "Esc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
     "-", "+", "Backspace", 
-    "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]",
+    "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
     "Enter", "Ctrl",
-    "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "\"", "'",
+    "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "\"", "'",
     "Left Shift", "|", 
-    "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?", "Right Shift", 
+    "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "Right Shift", 
     "*", "Alt", "Space", "CapsLock", 
     "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10",
     "NumLock", "ScrollLock", "Home", "Up", "Page-Up", "-", "Left",
@@ -53,8 +53,10 @@ static void workqueue_func(struct work_struct *work) {
     struct my_work *my_work = container_of(work, struct my_work, work);
     char code = my_work->code;
 
-    printk(KERN_INFO "+ workqueue: Raw scancode:  code=%d, symbol=%s\n", code, last_symbol);
-    if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
+    // printk(KERN_INFO "+ workqueue: Raw scancode:  code=%d, symbol=%s\n", code, last_symbol);
+    if (code >= 0 && code <= 11 || code >= 16 && code <= 25 || 
+        code >= 30 && code <= 38 || code >= 44 && code <= 50) {
+    // if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
         last_symbol = symbs[code];
         printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", code, last_symbol);
         counter++;
@@ -138,17 +140,23 @@ static int __init my_init(void) {
 
 static void __exit my_exit(void) {
     printk(KERN_INFO "+ workqueue: exit\n");
-    // free_irq(IRQ_NUM, NULL);
+    free_irq(IRQ_NUM, NULL);
     // restore default handler
-    int err = request_irq(IRQ_NUM, NULL, 0, NULL, NULL);
-    if (err) {
-        printk(KERN_ERR "+ workqueue: request_irq failed\n");
-        return;
+    // int err = request_irq(IRQ_NUM, NULL, 0, NULL, NULL);
+    // if (err) {
+    //     printk(KERN_ERR "+ workqueue: request_irq failed\n");
+    //     return;
+    // }
+    // printk(KERN_INFO "+ workqueue: irq restored\n");
+    if (my_wq) {
+        flush_workqueue(my_wq);
+        destroy_workqueue(my_wq);
+        printk(KERN_INFO "+ workqueue: workqueue destroyed\n");
     }
-    printk(KERN_INFO "+ workqueue: irq restored\n");
-    flush_workqueue(my_wq);
-    destroy_workqueue(my_wq);
-    printk(KERN_INFO "+ workqueue: workqueue destroyed\n");
+    if (file) {
+        proc_remove(file);
+        printk(KERN_INFO "+ workqueue: proc file removed\n");
+    }
 }
 
 module_init(my_init);
