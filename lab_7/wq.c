@@ -33,35 +33,30 @@ static struct proc_dir_entry *file;
 static int counter = 0;
 static char *last_symbol = "No symbol";
 static ktime_t last_kwork_time = 0;
-
-char * symbs[84] =  {
+#define len_symbs 58
+static char * symbs[] =  {
     " ", "Esc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
     "-", "+", "Backspace", 
     "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
     "Enter", "Ctrl",
     "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "\"", "'",
     "Left Shift", "|", 
-    "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "Right Shift", 
-    "*", "Alt", "Space", "CapsLock", 
-    "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10",
-    "NumLock", "ScrollLock", "Home", "Up", "Page-Up", "-", "Left",
-    " ", "Right", "+",
-    "End", "Down", "Page-Down", "Insert", "Delete"
+    "z", "x", "c", "v", "b", "n", "m", "<", ">", "?", "Right Shift", 
+    "*", "Alt", "Space", 
 };
 
 static void workqueue_func(struct work_struct *work) {
     struct my_work *my_work = container_of(work, struct my_work, work);
-    char scancode = my_work->code;
+    char code = my_work->code;
 
-    if (scancode >= 0 && scancode <= 11 || scancode >= 16 && scancode <= 25 || 
-            scancode >= 30 && scancode <= 38 || scancode >= 44 && scancode <= 50) {
-        last_symbol = symbs[scancode];
-        printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", scancode, last_symbol);
-        counter++;
-        my_work->code = 0;
-        ktime_t now = ktime_get();
-        last_kwork_time = now - my_work->start_time;
-    }
+    // if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
+    last_symbol = symbs[code];
+    printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", code, last_symbol);
+    counter++;
+    my_work->code = 0;
+    ktime_t now = ktime_get();
+    last_kwork_time = now - my_work->start_time;
+    // }
 
     kfree(my_work);
 }
@@ -74,24 +69,22 @@ static void workqueue_sleep(struct work_struct *work) {
 
 static irqreturn_t my_handler(int irq, void *dev_id) {
     if (IRQ_NUM == irq) {
-        if (!(inb(STATUS_PORT) & 0x01)) {
-            return IRQ_NONE;
-        }
         char scancode = inb(SCANCODE_PORT);
-        
-        struct my_work *my_work = kmalloc(sizeof(struct my_work), GFP_KERNEL);
-        if (!my_work) {
-            printk(KERN_ERR "+ workqueue: kmalloc failed\n");
+        // printk(KERN_ERR "+ workqueue: \t\tscancode=%d\n", scancode);
+        if (scancode >= 0 && scancode < len_symbs) {
+            struct my_work *my_work = kmalloc(sizeof(struct my_work), GFP_KERNEL);
+            if (!my_work) {
+                printk(KERN_ERR "+ workqueue: kmalloc failed\n");
+                return IRQ_HANDLED;
+            }
+            my_work->code = scancode;
+            my_work->start_time = ktime_get();
+            INIT_WORK(&my_work->work, workqueue_func);
+            queue_work(my_wq, &my_work->work);
+            // queue_work(my_wq, &sleep_work);
             return IRQ_HANDLED;
         }
-        my_work->code = scancode;
-        my_work->start_time = ktime_get();
-        INIT_WORK(&my_work->work, workqueue_func);
-        queue_work(my_wq, &my_work->work);
-        // queue_work(my_wq, &sleep_work);
             
-        
-        return IRQ_HANDLED;
     }
     return IRQ_NONE;
 }
@@ -120,7 +113,6 @@ static int __init my_init(void) {
     file = proc_create(FILENAME, 0666, NULL, &single_proc_fops);
     if (file == NULL) {
         printk(KERN_ERR "+ workqueue: proc_create failed\n");
-        free_irq(IRQ_NUM, NULL);
         return -ENOMEM;
     }
     printk(KERN_INFO "+ workqueue: proc file created\n");
@@ -144,22 +136,10 @@ static int __init my_init(void) {
 static void __exit my_exit(void) {
     printk(KERN_INFO "+ workqueue: exit\n");
     free_irq(IRQ_NUM, &my_handler);
-    // restore default handler
-    // int err = request_irq(IRQ_NUM, NULL, 0, NULL, NULL);
-    // if (err) {
-    //     printk(KERN_ERR "+ workqueue: request_irq failed\n");
-    //     return;
-    // }
-    // printk(KERN_INFO "+ workqueue: irq restored\n");
-    if (my_wq) {
-        flush_workqueue(my_wq);
-        destroy_workqueue(my_wq);
-        printk(KERN_INFO "+ workqueue: workqueue destroyed\n");
-    }
-    if (file) {
-        proc_remove(file);
-        printk(KERN_INFO "+ workqueue: proc file removed\n");
-    }
+    flush_workqueue(my_wq);
+    destroy_workqueue(my_wq);
+    proc_remove(file);
+    
 }
 
 module_init(my_init);
