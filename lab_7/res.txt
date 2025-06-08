@@ -1,21 +1,21 @@
-[   10.593317] x86/mm: Checked W+X mappings: passed, no W+X pages found.
-[   22.408007] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
-[  263.431671] + workqueue: init
-[  263.431684] + workqueue: proc file created
-[  263.431752] + workqueue: irq requested
-[  265.944864] + workqueue: code=30, symbol=a
-[  265.944879] + workqueue: sleep
-[  267.968253] + workqueue: wake up
-[  267.968264] + workqueue: sleep
-[  268.178300] + workqueue: code=30, symbol=a
-[  268.348764] + workqueue: code=31, symbol=s
-[  268.418553] + workqueue: code=32, symbol=d
-[  270.015918] + workqueue: wake up
-[  270.015929] + workqueue: sleep
-[  270.566748] + workqueue: code=50, symbol=m
-[  270.671640] + workqueue: code=30, symbol=a
-[  270.792184] + workqueue: code=37, symbol=k
-[  270.904162] + workqueue: code=18, symbol=e
-[  271.087927] + workqueue: code=19, symbol=r
-[  271.208290] + workqueue: code=18, symbol=e
-[  271.302998] + workqueue: code=31, symbol=s
+[    6.755021] x86/mm: Checked W+X mappings: passed, no W+X pages found.
+[    9.735218] systemd[1]: systemd 257.5-3-arch running in system mode (+PAM +AUDIT -SELINUX -APPARMOR -IMA +IPE +SMACK +SECCOMP +GCRYPT +GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBCRYPTSETUP_PLUGINS +LIBFDISK +PCRE2 +PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD +BPF_FRAMEWORK +BTF +XKBCOMMON +UTMP -SYSVINIT +LIBARCHIVE)
+[  523.677179] + workqueue: init
+[  523.677191] + workqueue: proc file created
+[  523.677653] + workqueue: irq requested
+[  524.712124] + workqueue: code=30, symbol=a
+[  524.712135] + workqueue: sleep
+[  524.836991] + workqueue: code=31, symbol=s
+[  524.922164] + workqueue: code=32, symbol=d
+[  525.223709] + workqueue: code=30, symbol=a
+[  525.347895] + workqueue: code=31, symbol=s
+[  525.372898] + workqueue: code=32, symbol=d
+[  526.713851] + workqueue: wake up
+[  526.714118] + workqueue: sleep
+[  526.860387] + workqueue: code=50, symbol=m
+[  526.985504] + workqueue: code=30, symbol=a
+[  527.085179] + workqueue: code=37, symbol=k
+[  527.195585] + workqueue: code=18, symbol=e
+[  527.546467] + workqueue: code=19, symbol=r
+[  527.626112] + workqueue: code=18, symbol=e
+[  527.726384] + workqueue: code=31, symbol=s

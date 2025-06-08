@@ -51,14 +51,12 @@ char * symbs[84] =  {
 
 static void workqueue_func(struct work_struct *work) {
     struct my_work *my_work = container_of(work, struct my_work, work);
-    char code = my_work->code;
+    char scancode = my_work->code;
 
-    // printk(KERN_INFO "+ workqueue: Raw scancode:  code=%d, symbol=%s\n", code, last_symbol);
-    if (code >= 0 && code <= 11 || code >= 16 && code <= 25 || 
-        code >= 30 && code <= 38 || code >= 44 && code <= 50) {
-    // if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
-        last_symbol = symbs[code];
-        printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", code, last_symbol);
+    if (scancode >= 0 && scancode <= 11 || scancode >= 16 && scancode <= 25 || 
+            scancode >= 30 && scancode <= 38 || scancode >= 44 && scancode <= 50) {
+        last_symbol = symbs[scancode];
+        printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", scancode, last_symbol);
         counter++;
         my_work->code = 0;
         ktime_t now = ktime_get();
@@ -76,8 +74,11 @@ static void workqueue_sleep(struct work_struct *work) {
 
 static irqreturn_t my_handler(int irq, void *dev_id) {
     if (IRQ_NUM == irq) {
+        if (!(inb(STATUS_PORT) & 0x01)) {
+            return IRQ_NONE;
+        }
         char scancode = inb(SCANCODE_PORT);
-        char status = inb(STATUS_PORT);
+        
         struct my_work *my_work = kmalloc(sizeof(struct my_work), GFP_KERNEL);
         if (!my_work) {
             printk(KERN_ERR "+ workqueue: kmalloc failed\n");
@@ -87,7 +88,9 @@ static irqreturn_t my_handler(int irq, void *dev_id) {
         my_work->start_time = ktime_get();
         INIT_WORK(&my_work->work, workqueue_func);
         queue_work(my_wq, &my_work->work);
-        queue_work(my_wq, &sleep_work);
+        // queue_work(my_wq, &sleep_work);
+            
+        
         return IRQ_HANDLED;
     }
     return IRQ_NONE;
@@ -140,7 +143,7 @@ static int __init my_init(void) {
 
 static void __exit my_exit(void) {
     printk(KERN_INFO "+ workqueue: exit\n");
-    free_irq(IRQ_NUM, NULL);
+    free_irq(IRQ_NUM, &my_handler);
     // restore default handler
     // int err = request_irq(IRQ_NUM, NULL, 0, NULL, NULL);
     // if (err) {
