@@ -46,10 +46,11 @@ static void my_tasklet_func(unsigned long data) {
     last_tasklet_time = now - start_tasklet_time;
 }
 
+// обработчике аппаратного прерывания!
 static irqreturn_t my_handler(int irq, void *dev_id) {
     if (IRQ_NUM == irq) {
         char scancode = inb(SCANCODE_PORT);
-        if (scancode >= 0 && scancode < len_symbs) {
+        if (scancode >= 0 && scancode < len_symbs && scancode != 14 && scancode != 57 && scancode != 28) {
             start_tasklet_time = ktime_get();
             my_tasklet->data = (unsigned long) scancode;
             tasklet_schedule(my_tasklet);

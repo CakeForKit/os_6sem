@@ -63,13 +63,14 @@ static void workqueue_sleep(struct work_struct *work) {
     printk(KERN_INFO "+ workqueue: sleep\n");
     msleep(SLEEP_TIME);
     printk(KERN_INFO "+ workqueue: wake up\n");
+    workqueue_func(work);
 }
 
 static irqreturn_t my_handler(int irq, void *dev_id) {
     if (IRQ_NUM == irq) {
         char scancode = inb(SCANCODE_PORT);
         // printk(KERN_ERR "+ workqueue: \t\tscancode=%d\n", scancode);
-        if (scancode >= 0 && scancode < len_symbs) {
+        if (scancode >= 0 && scancode < len_symbs && scancode != 14 && scancode != 57 && scancode != 28) {
             struct my_work *my_work = kmalloc(sizeof(struct my_work), GFP_KERNEL);
             if (!my_work) {
                 printk(KERN_ERR "+ workqueue: kmalloc failed\n");
@@ -79,10 +80,18 @@ static irqreturn_t my_handler(int irq, void *dev_id) {
             my_work->start_time = ktime_get();
             INIT_WORK(&my_work->work, workqueue_func);
             queue_work(my_wq, &my_work->work);
-            queue_work(my_wq, &sleep_work);
+
+            struct my_work *my_work2 = kmalloc(sizeof(struct my_work), GFP_KERNEL);
+            if (!my_work2) {
+                printk(KERN_ERR "+ workqueue: kmalloc failed\n");
+                return IRQ_HANDLED;
+            }
+            my_work2->code = scancode;
+            my_work2->start_time = ktime_get();
+            INIT_WORK(&my_work2->work, workqueue_sleep);
+            queue_work(my_wq, &my_work2->work);
             return IRQ_HANDLED;
-        }
-            
+        }    
     }
     return IRQ_NONE;
 }
@@ -125,7 +134,7 @@ static int __init my_init(void) {
         printk(KERN_ERR "+ workqueue: alloc_workqueue failed\n");
         return -ENOMEM;
     }
-    INIT_WORK(&sleep_work, workqueue_sleep);
+    INIT_WORK(&sleep_work, &workqueue_sleep);
 
     return 0;
 }

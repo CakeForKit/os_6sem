@@ -1,211 +1,294 @@
-[  312.105995] + workqueue: sleep
-[  312.133099] + tasklet: code=49, symbol=n
-[  312.133316] + workqueue: code=49, symbol=n
-[  312.373824] + tasklet: code=20, symbol=t
-[  312.374789] + workqueue: code=20, symbol=t
-[  312.448374] + tasklet: code=18, symbol=e
-[  312.449234] + workqueue: code=18, symbol=e
-[  312.528558] + tasklet: code=19, symbol=r
-[  312.529239] + workqueue: code=19, symbol=r
-[  314.154092] + workqueue: wake up
-[  314.154111] + workqueue: sleep
-[  315.559233] + tasklet: code=19, symbol=r
-[  315.559465] + workqueue: code=19, symbol=r
-[  315.800690] + tasklet: code=22, symbol=u
-[  315.801005] + workqueue: code=22, symbol=u
-[  316.064988] + tasklet: code=25, symbol=p
-[  316.065258] + workqueue: code=25, symbol=p
-[  316.201230] + workqueue: wake up
-[  316.201251] + workqueue: sleep
-[  316.456152] + tasklet: code=20, symbol=t
-[  316.457192] + workqueue: code=20, symbol=t
-[  316.576258] + tasklet: code=31, symbol=s
-[  316.577155] + workqueue: code=31, symbol=s
-[  316.992482] + tasklet: code=57, symbol=Space
-[  316.993558] + workqueue: code=57, symbol=Space
-[  317.247875] + tasklet: code=54, symbol=Right Shift
-[  317.248653] + workqueue: code=54, symbol=Right Shift
-[  317.357851] + tasklet: code=52, symbol=>
-[  317.358660] + workqueue: code=52, symbol=>
-[  317.507691] + tasklet: code=57, symbol=Space
-[  317.507992] + workqueue: code=57, symbol=Space
-[  317.804222] + tasklet: code=23, symbol=i
-[  317.804446] + workqueue: code=23, symbol=i
-[  318.193991] + tasklet: code=52, symbol=>
-[  318.195204] + workqueue: code=52, symbol=>
-[  318.251733] + workqueue: wake up
-[  318.251748] + workqueue: sleep
-[  318.515402] + tasklet: code=20, symbol=t
-[  318.516729] + workqueue: code=20, symbol=t
-[  318.629751] + tasklet: code=45, symbol=x
-[  318.629968] + workqueue: code=45, symbol=x
-[  318.730001] + tasklet: code=20, symbol=t
-[  318.730892] + workqueue: code=20, symbol=t
-[  319.185718] + tasklet: code=28, symbol=Enter
-[  319.185972] + workqueue: code=28, symbol=Enter
-[  320.298570] + workqueue: wake up
-[  320.298582] + workqueue: sleep
-[  322.345606] + workqueue: wake up
-[  335.674861] + tasklet: code=50, symbol=m
-[  335.675076] + workqueue: code=50, symbol=m
-[  335.675094] + workqueue: sleep
-[  335.794752] + tasklet: code=30, symbol=a
-[  335.795118] + workqueue: code=30, symbol=a
-[  335.890985] + tasklet: code=37, symbol=k
-[  335.891235] + workqueue: code=37, symbol=k
-[  336.016055] + tasklet: code=18, symbol=e
-[  336.016285] + workqueue: code=18, symbol=e
-[  336.130623] + tasklet: code=57, symbol=Space
-[  336.130888] + workqueue: code=57, symbol=Space
-[  336.626484] + tasklet: code=19, symbol=r
-[  336.626748] + workqueue: code=19, symbol=r
-[  336.702505] + tasklet: code=18, symbol=e
-[  336.702553] + workqueue: code=18, symbol=e
-[  336.772162] + tasklet: code=31, symbol=s
-[  336.772191] + workqueue: code=31, symbol=s
-[  337.247788] + tasklet: code=28, symbol=Enter
-[  337.248096] + workqueue: code=28, symbol=Enter
-[  337.705610] + workqueue: wake up
-[  337.705620] + workqueue: sleep
-[  339.754456] + workqueue: wake up
-[  406.307710] + tasklet: code=35, symbol=h
-[  406.308080] + workqueue: code=35, symbol=h
-[  406.308089] + workqueue: sleep
-[  408.360910] + workqueue: wake up
-[  412.338236] + tasklet: code=50, symbol=m
-[  412.338481] + workqueue: code=50, symbol=m
-[  412.338488] + workqueue: sleep
-[  412.437920] + tasklet: code=30, symbol=a
-[  412.439091] + workqueue: code=30, symbol=a
-[  412.543554] + tasklet: code=37, symbol=k
-[  412.543606] + workqueue: code=37, symbol=k
-[  412.673658] + tasklet: code=18, symbol=e
-[  412.673928] + workqueue: code=18, symbol=e
-[  412.773891] + tasklet: code=57, symbol=Space
-[  412.774185] + workqueue: code=57, symbol=Space
-[  413.194524] + tasklet: code=19, symbol=r
-[  413.194740] + workqueue: code=19, symbol=r
-[  413.259696] + tasklet: code=18, symbol=e
-[  413.259844] + workqueue: code=18, symbol=e
-[  413.355560] + tasklet: code=31, symbol=s
-[  413.355812] + workqueue: code=31, symbol=s
-[  413.595789] + tasklet: code=28, symbol=Enter
-[  413.596375] + workqueue: code=28, symbol=Enter
-[  414.377635] + workqueue: wake up
-[  414.377709] + workqueue: sleep
-[  416.426476] + workqueue: wake up
-[  443.642907] + tasklet: code=50, symbol=m
-[  443.643185] + workqueue: code=50, symbol=m
-[  443.643206] + workqueue: sleep
-[  444.389278] + tasklet: code=30, symbol=a
-[  444.389554] + workqueue: code=30, symbol=a
-[  444.513947] + tasklet: code=37, symbol=k
-[  444.514545] + workqueue: code=37, symbol=k
-[  444.619277] + tasklet: code=18, symbol=e
-[  444.619505] + workqueue: code=18, symbol=e
-[  444.719290] + tasklet: code=57, symbol=Space
-[  444.719542] + workqueue: code=57, symbol=Space
-[  445.066161] + tasklet: code=32, symbol=d
-[  445.066434] + workqueue: code=32, symbol=d
-[  445.224898] + tasklet: code=23, symbol=i
-[  445.225128] + workqueue: code=23, symbol=i
-[  445.275573] + tasklet: code=31, symbol=s
-[  445.275968] + workqueue: code=31, symbol=s
-[  445.405389] + tasklet: code=46, symbol=c
-[  445.405494] + workqueue: code=46, symbol=c
-[  445.560867] + tasklet: code=38, symbol=l
-[  445.561119] + workqueue: code=38, symbol=l
-[  445.635208] + tasklet: code=18, symbol=e
-[  445.635227] + workqueue: code=18, symbol=e
-[  445.673383] + workqueue: wake up
-[  445.673393] + workqueue: sleep
-[  445.726143] + tasklet: code=30, symbol=a
-[  445.726657] + workqueue: code=30, symbol=a
-[  445.861410] + tasklet: code=49, symbol=n
-[  445.861438] + workqueue: code=49, symbol=n
-[  446.157181] + tasklet: code=28, symbol=Enter
-[  446.157443] + workqueue: code=28, symbol=Enter
-[  446.332805] + tasklet: exit
-[  446.359390] + workqueue: exit
-[  447.722368] + workqueue: wake up
-[  447.722387] + workqueue: sleep
-[  449.769645] + workqueue: wake up
-[  482.929030] + tasklet: init
-[  482.929586] WARNING: CPU: 4 PID: 3388 at fs/proc/generic.c:377 proc_register+0x109/0x190
-[  482.929638] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
-[  482.929957] RIP: 0010:proc_register+0x109/0x190
-[  482.930044]  ? __pfx_my_init+0x10/0x10 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
-[  482.930058]  my_init+0x30/0xff0 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
-[  482.930067]  do_one_initcall+0x5c/0x310
-[  482.930086]  do_init_module+0x62/0x240
-[  482.930140]  init_module_from_file+0x8b/0xe0
-[  482.930148]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930255]  idempotent_init_module+0x115/0x310
-[  482.930267]  __x64_sys_finit_module+0x67/0xc0
-[  482.930277]  do_syscall_64+0x7b/0x190
-[  482.930587]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930595]  ? atime_needs_update+0x9e/0x120
-[  482.930608]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930614]  ? touch_atime+0x1e/0x120
-[  482.930620]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930627]  ? filemap_read+0x3e6/0x420
-[  482.930707]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930713]  ? dput+0x34/0x1c0
-[  482.930721]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930727]  ? __fsnotify_parent+0x163/0x3f0
-[  482.930772]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930778]  ? vfs_read+0x162/0x390
-[  482.930821]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930827]  ? __x64_sys_pread64+0xab/0xd0
-[  482.930834]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930840]  ? syscall_exit_to_user_mode+0x37/0x1c0
-[  482.930879]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930884]  ? do_syscall_64+0x87/0x190
-[  482.930892]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930898]  ? __count_memcg_events+0xb0/0x150
-[  482.930908]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930914]  ? count_memcg_events.constprop.0+0x1a/0x30
-[  482.930923]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.930928]  ? handle_mm_fault+0x1b6/0x2c0
-[  482.931240]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.931248]  ? do_user_addr_fault+0x36c/0x640
-[  482.931260]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.931265]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  482.931270]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
-[  482.931278]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-[  560.473945] + tasklet: init
-[  560.474160] WARNING: CPU: 1 PID: 3518 at fs/proc/generic.c:377 proc_register+0x109/0x190
-[  560.474174] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
-[  560.474491] RIP: 0010:proc_register+0x109/0x190
-[  560.474600]  ? __pfx_my_init+0x10/0x10 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
-[  560.474610]  my_init+0x30/0xff0 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
-[  560.474616]  do_one_initcall+0x5c/0x310
-[  560.474629]  do_init_module+0x62/0x240
-[  560.474636]  init_module_from_file+0x8b/0xe0
-[  560.474648]  idempotent_init_module+0x115/0x310
-[  560.474657]  __x64_sys_finit_module+0x67/0xc0
-[  560.474664]  do_syscall_64+0x7b/0x190
-[  560.474672]  ? rcu_core+0x19d/0x360
-[  560.474747]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  560.474753]  ? irqtime_account_irq+0x3c/0xc0
-[  560.474780]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  560.474784]  ? handle_softirqs+0x192/0x2a0
-[  560.474793]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  560.474797]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  560.474801]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
-[  560.474808]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-[  593.881315] + tasklet: init
-[  593.881451] WARNING: CPU: 1 PID: 3985 at fs/proc/generic.c:377 proc_register+0x109/0x190
-[  593.881466] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
-[  593.881690] RIP: 0010:proc_register+0x109/0x190
-[  593.881786]  ? __pfx_my_init+0x10/0x10 [tasklet e615c029f9471b73762941ee071e7c596f95541e]
-[  593.881798]  my_init+0x30/0xff0 [tasklet e615c029f9471b73762941ee071e7c596f95541e]
-[  593.881807]  do_one_initcall+0x5c/0x310
-[  593.881885]  do_init_module+0x62/0x240
-[  593.881894]  init_module_from_file+0x8b/0xe0
-[  593.881908]  idempotent_init_module+0x115/0x310
-[  593.881920]  __x64_sys_finit_module+0x67/0xc0
-[  593.881928]  do_syscall_64+0x7b/0x190
-[  593.881938]  ? srso_alias_return_thunk+0x5/0xfbef5
-[  593.881945]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
-[  593.881954]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[  800.224712] + workqueue: code=50, symbol=m
+[  800.224722] + workqueue: sleep
+[  800.430676] + workqueue: code=50, symbol=m
+[  800.430687] + workqueue: sleep
+[  800.505472] + workqueue: code=24, symbol=o
+[  800.505483] + workqueue: sleep
+[  800.675774] + workqueue: code=32, symbol=d
+[  800.675784] + workqueue: sleep
+[  802.124188] + workqueue: wake up
+[  802.124197] + workqueue: code=19, symbol=r
+[  802.251786] + workqueue: wake up
+[  802.251797] + workqueue: code=50, symbol=m
+[  802.444359] + workqueue: wake up
+[  802.444370] + workqueue: code=50, symbol=m
+[  802.454678] + workqueue: code=17, symbol=w
+[  802.454689] + workqueue: sleep
+[  802.508576] + workqueue: wake up
+[  802.508586] + workqueue: code=24, symbol=o
+[  802.545697] + workqueue: code=16, symbol=q
+[  802.545708] + workqueue: sleep
+[  802.702520] + workqueue: wake up
+[  802.702530] + workqueue: code=32, symbol=d
+[  804.491954] + workqueue: wake up
+[  804.491963] + workqueue: code=17, symbol=w
+[  804.556369] + workqueue: wake up
+[  804.556379] + workqueue: code=16, symbol=q
+[  806.804422] + workqueue: code=31, symbol=s
+[  806.804431] + workqueue: sleep
+[  806.904382] + workqueue: code=22, symbol=u
+[  806.904396] + workqueue: sleep
+[  806.984673] + workqueue: code=32, symbol=d
+[  806.984682] + workqueue: sleep
+[  807.139639] + workqueue: code=25, symbol=p
+[  807.139648] + workqueue: sleep
+[  808.106910] + workqueue: code=24, symbol=o
+[  808.106921] + workqueue: sleep
+[  808.393783] + workqueue: code=19, symbol=r
+[  808.393790] + workqueue: sleep
+[  808.528037] + workqueue: code=50, symbol=m
+[  808.528048] + workqueue: sleep
+[  808.843901] + workqueue: wake up
+[  808.843911] + workqueue: code=31, symbol=s
+[  808.907825] + workqueue: wake up
+[  808.907835] + workqueue: code=22, symbol=u
+[  809.035821] + workqueue: wake up
+[  809.035829] + workqueue: code=32, symbol=d
+[  809.068821] + workqueue: code=50, symbol=m
+[  809.068832] + workqueue: sleep
+[  809.163768] + workqueue: wake up
+[  809.163779] + workqueue: code=25, symbol=p
+[  809.174404] + workqueue: code=24, symbol=o
+[  809.174418] + workqueue: sleep
+[  809.419831] + workqueue: code=32, symbol=d
+[  809.419841] + workqueue: sleep
+[  810.123950] + workqueue: wake up
+[  810.123960] + workqueue: code=24, symbol=o
+[  810.444040] + workqueue: wake up
+[  810.444051] + workqueue: code=19, symbol=r
+[  810.467020] + workqueue: code=17, symbol=w
+[  810.467029] + workqueue: sleep
+[  810.560663] + workqueue: code=16, symbol=q
+[  810.560672] + workqueue: sleep
+[  810.571472] + workqueue: wake up
+[  810.571482] + workqueue: code=50, symbol=m
+[  810.819000] + workqueue: exit
+[  811.083980] + workqueue: wake up
+[  811.083993] + workqueue: code=50, symbol=m
+[  811.212073] + workqueue: wake up
+[  811.212081] + workqueue: code=24, symbol=o
+[  811.467950] + workqueue: wake up
+[  811.467959] + workqueue: code=32, symbol=d
+[  812.492048] + workqueue: wake up
+[  812.492059] + workqueue: code=17, symbol=w
+[  812.620022] + workqueue: wake up
+[  812.620031] + workqueue: code=16, symbol=q
+[  816.059693] + tasklet: init
+[  818.469049] + tasklet: code=50, symbol=m
+[  818.555967] + tasklet: code=30, symbol=a
+[  818.684354] + tasklet: code=37, symbol=k
+[  818.764571] + tasklet: code=18, symbol=e
+[  819.075067] + tasklet: code=19, symbol=r
+[  819.130334] + tasklet: code=18, symbol=e
+[  819.210163] + tasklet: code=31, symbol=s
+[  826.510756] + tasklet: code=29, symbol=Ctrl
+[  826.626732] + tasklet: code=31, symbol=s
+[  827.437743] + tasklet: code=35, symbol=h
+[  843.601541] + tasklet: code=29, symbol=Ctrl
+[  843.851654] + tasklet: code=29, symbol=Ctrl
+[  843.885959] + tasklet: code=29, symbol=Ctrl
+[  843.919246] + tasklet: code=29, symbol=Ctrl
+[  843.953192] + tasklet: code=29, symbol=Ctrl
+[  843.986935] + tasklet: code=29, symbol=Ctrl
+[  843.997541] + tasklet: code=44, symbol=z
+[  844.433045] + tasklet: code=31, symbol=s
+[  846.597862] + tasklet: code=31, symbol=s
+[  846.723030] + tasklet: code=22, symbol=u
+[  846.863026] + tasklet: code=32, symbol=d
+[  847.920384] + tasklet: code=24, symbol=o
+[  848.201287] + tasklet: code=19, symbol=r
+[  848.361977] + tasklet: code=19, symbol=r
+[  848.461950] + tasklet: code=50, symbol=m
+[  848.598710] + tasklet: code=24, symbol=o
+[  848.782260] + tasklet: code=32, symbol=d
+[  850.926815] + tasklet: code=50, symbol=m
+[  851.091957] + tasklet: code=50, symbol=m
+[  851.207732] + tasklet: code=24, symbol=o
+[  851.362857] + tasklet: code=32, symbol=d
+[  854.158716] + tasklet: code=20, symbol=t
+[  854.424196] + tasklet: code=30, symbol=a
+[  854.519326] + tasklet: code=31, symbol=s
+[  854.738999] + tasklet: code=37, symbol=k
+[  854.899907] + tasklet: code=38, symbol=l
+[  855.155470] + tasklet: code=18, symbol=e
+[  856.705000] + tasklet: code=18, symbol=e
+[  856.853910] + tasklet: code=20, symbol=t
+[  857.156106] + tasklet: exit
+[  950.953303] + tasklet: init
+[  951.951168] + tasklet: code=50, symbol=m
+[  952.046169] + tasklet: code=30, symbol=a
+[  952.161511] + tasklet: code=37, symbol=k
+[  952.266803] + tasklet: code=18, symbol=e
+[  952.849123] + tasklet: code=19, symbol=r
+[  952.911965] + tasklet: code=18, symbol=e
+[  952.998997] + tasklet: code=31, symbol=s
+[  954.711900] + tasklet: code=40, symbol="
+[ 1311.071565] + tasklet: code=35, symbol=h
+[ 1315.168743] + tasklet: code=2, symbol=1
+[ 1315.348866] + tasklet: code=2, symbol=1
+[ 1315.520040] + tasklet: code=2, symbol=1
+[ 1316.611516] + tasklet: code=50, symbol=m
+[ 1316.683978] + tasklet: code=30, symbol=a
+[ 1316.811464] + tasklet: code=37, symbol=k
+[ 1316.891574] + tasklet: code=18, symbol=e
+[ 1317.297876] + tasklet: code=19, symbol=r
+[ 1317.367322] + tasklet: code=18, symbol=e
+[ 1317.472652] + tasklet: code=31, symbol=s
+[ 1321.098799] + tasklet: code=29, symbol=Ctrl
+[ 1321.264375] + tasklet: code=31, symbol=s
+[ 1325.356020] + tasklet: code=35, symbol=h
+[ 1343.071435] + tasklet: code=50, symbol=m
+[ 1343.186699] + tasklet: code=30, symbol=a
+[ 1343.252141] + tasklet: code=37, symbol=k
+[ 1343.421942] + tasklet: code=18, symbol=e
+[ 1343.772866] + tasklet: code=19, symbol=r
+[ 1343.863235] + tasklet: code=18, symbol=e
+[ 1343.953122] + tasklet: code=31, symbol=s
+[ 1675.867418] + tasklet: code=29, symbol=Ctrl
+[ 1675.982384] + tasklet: code=31, symbol=s
+[ 1805.783809] + tasklet: code=35, symbol=h
+[ 1809.410859] + tasklet: code=2, symbol=1
+[ 1809.580000] + tasklet: code=2, symbol=1
+[ 1809.765330] + tasklet: code=2, symbol=1
+[ 1855.440473] + tasklet: code=19, symbol=r
+[ 1855.609778] + tasklet: code=50, symbol=m
+[ 1856.266463] + tasklet: code=50, symbol=m
+[ 1858.750487] + tasklet: code=24, symbol=o
+[ 1858.890601] + tasklet: code=32, symbol=d
+[ 1860.424467] + tasklet: code=20, symbol=t
+[ 1861.134682] + tasklet: code=30, symbol=a
+[ 1861.259817] + tasklet: code=31, symbol=s
+[ 1862.176823] + tasklet: code=37, symbol=k
+[ 1865.512333] + tasklet: code=38, symbol=l
+[ 1865.597046] + tasklet: code=18, symbol=e
+[ 1865.827599] + tasklet: code=20, symbol=t
+[ 1925.646011] + tasklet: code=31, symbol=s
+[ 1925.786100] + tasklet: code=22, symbol=u
+[ 1925.891694] + tasklet: code=32, symbol=d
+[ 1926.477957] + tasklet: code=24, symbol=o
+[ 1926.863198] + tasklet: code=19, symbol=r
+[ 1927.078924] + tasklet: code=19, symbol=r
+[ 1927.274215] + tasklet: code=50, symbol=m
+[ 1927.474735] + tasklet: code=24, symbol=o
+[ 1929.202160] + tasklet: code=50, symbol=m
+[ 1929.377555] + tasklet: code=50, symbol=m
+[ 1929.487568] + tasklet: code=24, symbol=o
+[ 1929.668509] + tasklet: code=32, symbol=d
+[ 1930.319086] + tasklet: code=20, symbol=t
+[ 1930.645184] + tasklet: code=30, symbol=a
+[ 1930.824856] + tasklet: code=31, symbol=s
+[ 1931.030307] + tasklet: code=37, symbol=k
+[ 1931.400970] + tasklet: code=38, symbol=l
+[ 1931.856775] + tasklet: code=18, symbol=e
+[ 1932.112127] + tasklet: code=20, symbol=t
+[ 1932.339757] + tasklet: exit
+[ 1935.850841] + workqueue: init
+[ 1936.900404] + workqueue: code=50, symbol=m
+[ 1936.900414] + workqueue: sleep
+[ 1937.000655] + workqueue: code=30, symbol=a
+[ 1937.000666] + workqueue: sleep
+[ 1937.085467] + workqueue: code=37, symbol=k
+[ 1937.085477] + workqueue: sleep
+[ 1937.195707] + workqueue: code=18, symbol=e
+[ 1937.195715] + workqueue: sleep
+[ 1937.552664] + workqueue: code=19, symbol=r
+[ 1937.552674] + workqueue: sleep
+[ 1937.642575] + workqueue: code=18, symbol=e
+[ 1937.642583] + workqueue: sleep
+[ 1937.726698] + workqueue: code=31, symbol=s
+[ 1937.726708] + workqueue: sleep
+[ 1938.959962] + workqueue: wake up
+[ 1938.959985] + workqueue: code=50, symbol=m
+[ 1939.020208] + workqueue: wake up
+[ 1939.020216] + workqueue: code=30, symbol=a
+[ 1939.149415] + workqueue: wake up
+[ 1939.149428] + workqueue: code=37, symbol=k
+[ 1939.212822] + workqueue: wake up
+[ 1939.212834] + workqueue: code=18, symbol=e
+[ 1939.597007] + workqueue: wake up
+[ 1939.597018] + workqueue: code=19, symbol=r
+[ 1939.660071] + workqueue: wake up
+[ 1939.660084] + workqueue: code=18, symbol=e
+[ 1939.787367] + workqueue: wake up
+[ 1939.787375] + workqueue: code=31, symbol=s
+[ 1940.351413] + workqueue: code=35, symbol=h
+[ 1940.351427] + workqueue: sleep
+[ 1942.411871] + workqueue: wake up
+[ 1942.411880] + workqueue: code=35, symbol=h
+[ 1966.905451] + workqueue: code=50, symbol=m
+[ 1966.905461] + workqueue: sleep
+[ 1966.964806] + workqueue: code=30, symbol=a
+[ 1966.964817] + workqueue: sleep
+[ 1967.065446] + workqueue: code=37, symbol=k
+[ 1967.065463] + workqueue: sleep
+[ 1967.185560] + workqueue: code=18, symbol=e
+[ 1967.185570] + workqueue: sleep
+[ 1968.908040] + workqueue: wake up
+[ 1968.908049] + workqueue: code=50, symbol=m
+[ 1968.971502] + workqueue: wake up
+[ 1968.971511] + workqueue: code=30, symbol=a
+[ 1969.099621] + workqueue: wake up
+[ 1969.099632] + workqueue: code=37, symbol=k
+[ 1969.227967] + workqueue: wake up
+[ 1969.227978] + workqueue: code=18, symbol=e
+[ 1969.484895] + workqueue: code=20, symbol=t
+[ 1969.484909] + workqueue: sleep
+[ 1969.975410] + workqueue: code=38, symbol=l
+[ 1969.975418] + workqueue: sleep
+[ 1970.125436] + workqueue: code=24, symbol=o
+[ 1970.125449] + workqueue: sleep
+[ 1970.230777] + workqueue: code=30, symbol=a
+[ 1970.230788] + workqueue: sleep
+[ 1970.350926] + workqueue: code=32, symbol=d
+[ 1970.350938] + workqueue: sleep
+[ 1970.769315] + tasklet: init
+[ 1971.532330] + workqueue: wake up
+[ 1971.532342] + workqueue: code=20, symbol=t
+[ 1971.979608] + workqueue: wake up
+[ 1971.979619] + workqueue: code=38, symbol=l
+[ 1972.172073] + workqueue: wake up
+[ 1972.172083] + workqueue: code=24, symbol=o
+[ 1972.209266] + tasklet: code=50, symbol=m
+[ 1972.209551] + workqueue: code=50, symbol=m
+[ 1972.209557] + workqueue: sleep
+[ 1972.240338] + workqueue: wake up
+[ 1972.240347] + workqueue: code=30, symbol=a
+[ 1972.293915] + tasklet: code=30, symbol=a
+[ 1972.294040] + workqueue: code=30, symbol=a
+[ 1972.294047] + workqueue: sleep
+[ 1972.363335] + workqueue: wake up
+[ 1972.363348] + workqueue: code=32, symbol=d
+[ 1972.414221] + tasklet: code=37, symbol=k
+[ 1972.414630] + workqueue: code=37, symbol=k
+[ 1972.414637] + workqueue: sleep
+[ 1972.539474] + tasklet: code=18, symbol=e
+[ 1972.539787] + workqueue: code=18, symbol=e
+[ 1972.539794] + workqueue: sleep
+[ 1972.960086] + tasklet: code=19, symbol=r
+[ 1972.960464] + workqueue: code=19, symbol=r
+[ 1972.960480] + workqueue: sleep
+[ 1973.015399] + tasklet: code=18, symbol=e
+[ 1973.015596] + workqueue: code=18, symbol=e
+[ 1973.015603] + workqueue: sleep
+[ 1973.090225] + tasklet: code=31, symbol=s
+[ 1973.090308] + workqueue: code=31, symbol=s
+[ 1973.090314] + workqueue: sleep
+[ 1974.219648] + workqueue: wake up
+[ 1974.219659] + workqueue: code=50, symbol=m
+[ 1974.347924] + workqueue: wake up
+[ 1974.347932] + workqueue: code=30, symbol=a
+[ 1974.477105] + workqueue: wake up
+[ 1974.477118] + workqueue: code=37, symbol=k
+[ 1974.603443] + workqueue: wake up
+[ 1974.603453] + workqueue: code=18, symbol=e
+[ 1974.988295] + workqueue: wake up
+[ 1974.988303] + workqueue: code=19, symbol=r
+[ 1975.052458] + workqueue: wake up
+[ 1975.052468] + workqueue: code=18, symbol=e
+[ 1975.115660] + workqueue: wake up
+[ 1975.115670] + workqueue: code=31, symbol=s
+[ 1977.221992] + tasklet: code=35, symbol=h
+[ 1977.222370] + workqueue: code=35, symbol=h
+[ 1977.222377] + workqueue: sleep
+[ 1979.275822] + workqueue: wake up
+[ 1979.275833] + workqueue: code=35, symbol=h
