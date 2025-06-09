@@ -38,15 +38,12 @@ static char * symbs[] =  {
 
 static void my_tasklet_func(unsigned long data) {
     char code = ((char) data) & 0x7F;
-    // Enter and arrows
-    // if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
     last_symbol = symbs[code];
     printk(KERN_INFO "+ tasklet: code=%d, symbol=%s\n", code, last_symbol);
     counter++;
     my_tasklet->state = TASKLET_STATE_SCHED;
     ktime_t now = ktime_get();
     last_tasklet_time = now - start_tasklet_time;
-    // }
 }
 
 static irqreturn_t my_handler(int irq, void *dev_id) {
@@ -113,6 +110,7 @@ static void __exit my_exit(void) {
     printk(KERN_INFO "+ tasklet: exit\n");
     free_irq(IRQ_NUM, &my_handler);
     tasklet_kill(my_tasklet);
+    proc_remove(file); 
 }
 
 module_init(my_init);

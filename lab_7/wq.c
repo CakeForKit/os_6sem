@@ -49,14 +49,12 @@ static void workqueue_func(struct work_struct *work) {
     struct my_work *my_work = container_of(work, struct my_work, work);
     char code = my_work->code;
 
-    // if (code != 28 && code != 80 && code != 77 && code != 75 && code != 72 && code < 84) {
     last_symbol = symbs[code];
     printk(KERN_INFO "+ workqueue: code=%d, symbol=%s\n", code, last_symbol);
     counter++;
     my_work->code = 0;
     ktime_t now = ktime_get();
     last_kwork_time = now - my_work->start_time;
-    // }
 
     kfree(my_work);
 }
@@ -81,7 +79,7 @@ static irqreturn_t my_handler(int irq, void *dev_id) {
             my_work->start_time = ktime_get();
             INIT_WORK(&my_work->work, workqueue_func);
             queue_work(my_wq, &my_work->work);
-            // queue_work(my_wq, &sleep_work);
+            queue_work(my_wq, &sleep_work);
             return IRQ_HANDLED;
         }
             
@@ -137,8 +135,7 @@ static void __exit my_exit(void) {
     free_irq(IRQ_NUM, &my_handler);
     flush_workqueue(my_wq);
     destroy_workqueue(my_wq);
-    proc_remove(file);
-    
+    proc_remove(file);   
 }
 
 module_init(my_init);

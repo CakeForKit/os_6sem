@@ -1,15 +1,15 @@
             CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       CPU6       CPU7       
-   0:         58          0          0          0          0          0          0          0  IO-APIC    2-edge      timer
-   1:          0          0          0          0          0          0          0        220  IO-APIC    1-edge      i8042
+   0:        127          0          0          0          0          0          0          0  IO-APIC    2-edge      timer
+   1:          0          0          0          0          0          0          0        258  IO-APIC    1-edge      i8042, my_handler, my_wq_handler
    8:          0          0          0          0          1          0          0          0  IO-APIC    8-edge      rtc0
    9:          0          0          0          0          0          0          0          0  IO-APIC    9-fasteoi   acpi
-  12:          0          0          0          0          0          0      15639          0  IO-APIC   12-edge      i8042
+  12:          0          0          0          0          0          0       4008          0  IO-APIC   12-edge      i8042
   14:          0          0          0          0          0          0          0          0  IO-APIC   14-edge      ata_piix
   15:          0          0          0          0          0          0          0          0  IO-APIC   15-edge      ata_piix
-  16:          0          0      24754          0          0          0          0          0  IO-APIC   16-fasteoi   vmwgfx, snd_ens1371
-  17:          0          0          0          0          0      27044          0          0  IO-APIC   17-fasteoi   ehci_hcd:usb2, ioc0
-  18:          0          0          0         65          0          0          0          0  IO-APIC   18-fasteoi   uhci_hcd:usb1
-  19:          0          0          0          0          0          0       2155          0  IO-APIC   19-fasteoi   ens33
+  16:          0          0      12510          0          0          0          0          0  IO-APIC   16-fasteoi   vmwgfx, snd_ens1371
+  17:          0          0          0          0          0      28953          0          0  IO-APIC   17-fasteoi   ehci_hcd:usb2, ioc0
+  18:          0          0          0         67          0          0          0          0  IO-APIC   18-fasteoi   uhci_hcd:usb1
+  19:          0          0          0          0          0          0       1178          0  IO-APIC   19-fasteoi   ens33
   24:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:15.0    0-edge      PCIe PME, pciehp
   25:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:15.1    0-edge      PCIe PME, pciehp
   26:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:15.2    0-edge      PCIe PME, pciehp
@@ -42,24 +42,24 @@
   53:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:18.5    0-edge      PCIe PME, pciehp
   54:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:18.6    0-edge      PCIe PME, pciehp
   55:          0          0          0          0          0          0          0          0 PCI-MSI-0000:00:18.7    0-edge      PCIe PME, pciehp
-  56:          0          0        453          0          0          0          0          0 PCI-MSI-0000:02:04.0    0-edge      ahci[0000:02:04.0]
-  57:          0          0          0        149          0          0          0          0 PCI-MSIX-0000:00:07.7    0-edge      vmw_vmci
+  56:          0          0        280          0          0          0          0          0 PCI-MSI-0000:02:04.0    0-edge      ahci[0000:02:04.0]
+  57:          0          0          0         93          0          0          0          0 PCI-MSIX-0000:00:07.7    0-edge      vmw_vmci
   58:          0          0          0          0          0          0          0          0 PCI-MSIX-0000:00:07.7    1-edge      vmw_vmci
-  59:          0          0          0          0          0        289          0          0 PCI-MSIX-0000:00:07.7    2-edge      vmw_vmci
- NMI:          8          9          9          9          9          8          8          9   Non-maskable interrupts
- LOC:      95057     106432     105566     112495     107500      89186     103607     101886   Local timer interrupts
+  59:          0          0          0          0          0        180          0          0 PCI-MSIX-0000:00:07.7    2-edge      vmw_vmci
+ NMI:          6          7          7          7          7          6          6          6   Non-maskable interrupts
+ LOC:      76447      95341      89342      93814      87742      74833      82139      78032   Local timer interrupts
  SPU:          0          0          0          0          0          0          0          0   Spurious interrupts
- PMI:          8          9          9          9          9          8          8          9   Performance monitoring interrupts
- IWI:        176        197         41        312        404        192        400        281   IRQ work interrupts
+ PMI:          6          7          7          7          7          6          6          6   Performance monitoring interrupts
+ IWI:        139        111         21        106         77        479        147        217   IRQ work interrupts
  RTR:          0          0          0          0          0          0          0          0   APIC ICR read retries
- RES:       1019       1815       1892       1601       1520       1602       1349       1454   Rescheduling interrupts
- CAL:      94742      85300      67386      70371      72241      60842      66712      70348   Function call interrupts
- TLB:       8113      13324      10320      12241      16251      11671      14893      13845   TLB shootdowns
+ RES:        954       1474       1410       1419       1416       1389       1407       1305   Rescheduling interrupts
+ CAL:      62919      56530      45189      51199      48810      44308      57322      43277   Function call interrupts
+ TLB:       3594       3512       5405       6146       6058       7638       4383       4003   TLB shootdowns
  TRM:          0          0          0          0          0          0          0          0   Thermal event interrupts
  THR:          0          0          0          0          0          0          0          0   Threshold APIC interrupts
  DFR:          0          0          0          0          0          0          0          0   Deferred Error APIC interrupts
  MCE:          0          0          0          0          0          0          0          0   Machine check exceptions
- MCP:          3          3          3          3          3          3          3          3   Machine check polls
+ MCP:          1          1          1          1          1          1          1          1   Machine check polls
  ERR:          0
  MIS:          0
  PIN:          0          0          0          0          0          0          0          0   Posted-interrupt notification event

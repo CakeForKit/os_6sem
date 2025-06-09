@@ -1,288 +1,211 @@
-[ 4086.488553] + workqueue: 		scancode=184 status=\x14
-[ 4280.743760] + workqueue: 		scancode=29 status=\x14
-[ 4280.743839] + workqueue: code=29, symbol=Ctrl
-[ 4280.858768] + workqueue: 		scancode=56 status=\x14
-[ 4280.944979] + workqueue: 		scancode=40 status=5
-[ 4280.945036] + workqueue: code=40, symbol="
-[ 4280.966119] + workqueue: 		scancode=184 status=\x14
-[ 4331.155500] + workqueue: 		scancode=50 status=\x14
-[ 4331.155692] + workqueue: code=50, symbol=m
-[ 4331.280416] + workqueue: 		scancode=178 status=\x14
-[ 4331.285427] + workqueue: 		scancode=30 status=\x14
-[ 4331.285542] + workqueue: code=30, symbol=a
-[ 4331.390738] + workqueue: 		scancode=37 status=\x14
-[ 4331.390880] + workqueue: code=37, symbol=k
-[ 4331.405942] + workqueue: 		scancode=158 status=\x14
-[ 4331.491029] + workqueue: 		scancode=165 status=\x14
-[ 4331.816371] + workqueue: 		scancode=29 status=\x14
-[ 4331.816460] + workqueue: code=29, symbol=Ctrl
-[ 4331.976728] + workqueue: 		scancode=44 status=\x14
-[ 4331.976808] + workqueue: code=44, symbol=z
-[ 4332.107978] + workqueue: 		scancode=172 status=\x14
-[ 4332.382477] + workqueue: 		scancode=31 status=\x14
-[ 4332.382534] + workqueue: code=31, symbol=s
-[ 4332.477547] + workqueue: 		scancode=157 status=\x14
-[ 4332.492611] + workqueue: 		scancode=159 status=\x14
-[ 4333.183970] + workqueue: 		scancode=50 status=\x14
-[ 4333.184412] + workqueue: code=50, symbol=m
-[ 4333.279258] + workqueue: 		scancode=30 status=\x14
-[ 4333.279358] + workqueue: code=30, symbol=a
-[ 4333.299277] + workqueue: 		scancode=178 status=\x14
-[ 4333.399495] + workqueue: 		scancode=37 status=\x14
-[ 4333.399591] + workqueue: code=37, symbol=k
-[ 4333.409505] + workqueue: 		scancode=158 status=\x14
-[ 4333.479581] + workqueue: 		scancode=18 status=\x14
-[ 4333.479684] + workqueue: code=18, symbol=e
-[ 4333.519653] + workqueue: 		scancode=165 status=\x14
-[ 4333.574947] + workqueue: 		scancode=57 status=\x14
-[ 4333.634995] + workqueue: 		scancode=146 status=\x14
-[ 4333.695037] + workqueue: 		scancode=185 status=\x14
-[ 4333.965811] + workqueue: 		scancode=32 status=\x14
-[ 4333.965932] + workqueue: code=32, symbol=d
-[ 4334.061692] + workqueue: 		scancode=160 status=\x14
-[ 4334.111968] + workqueue: 		scancode=23 status=\x14
-[ 4334.112078] + workqueue: code=23, symbol=i
-[ 4334.201059] + workqueue: 		scancode=151 status=\x14
-[ 4334.216152] + workqueue: 		scancode=31 status=\x14
-[ 4334.216245] + workqueue: code=31, symbol=s
-[ 4334.301226] + workqueue: 		scancode=159 status=\x14
-[ 4334.742155] + workqueue: 		scancode=46 status=\x14
-[ 4334.742247] + workqueue: code=46, symbol=c
-[ 4334.847372] + workqueue: 		scancode=174 status=\x14
-[ 4335.669080] + workqueue: 		scancode=38 status=\x14
-[ 4335.669303] + workqueue: code=38, symbol=l
-[ 4335.804190] + workqueue: 		scancode=166 status=\x14
-[ 4335.829279] + workqueue: 		scancode=18 status=\x14
-[ 4335.829399] + workqueue: code=18, symbol=e
-[ 4335.899460] + workqueue: 		scancode=30 status=\x14
-[ 4335.899596] + workqueue: code=30, symbol=a
-[ 4335.994641] + workqueue: 		scancode=146 status=\x14
-[ 4336.014612] + workqueue: 		scancode=158 status=\x14
-[ 4336.035272] + workqueue: 		scancode=49 status=\x14
-[ 4336.035454] + workqueue: code=49, symbol=n
-[ 4336.080631] + workqueue: 		scancode=177 status=\x14
-[ 4336.320948] + workqueue: 		scancode=28 status=\x14
-[ 4336.410335] + workqueue: 		scancode=156 status=\x14
-[ 4337.337301] + workqueue: 		scancode=2 status=\x14
-[ 4337.337393] + workqueue: code=2, symbol=1
-[ 4337.417454] + workqueue: 		scancode=130 status=\x14
-[ 4337.517628] + workqueue: 		scancode=2 status=\x14
-[ 4337.517735] + workqueue: code=2, symbol=1
-[ 4337.597764] + workqueue: 		scancode=130 status=\x14
-[ 4337.693563] + workqueue: 		scancode=2 status=\x14
-[ 4337.693701] + workqueue: code=2, symbol=1
-[ 4337.788607] + workqueue: 		scancode=130 status=\x14
-[ 4337.863403] + workqueue: 		scancode=28 status=\x14
-[ 4337.912478] + workqueue: exit
-[ 4337.912602] + workqueue: 		scancode=28 status=\x14
-[ 5143.604299] + workqueue: init
-[ 5143.604314] + workqueue: proc file created
-[ 5143.604377] + workqueue: irq requested
-[ 5144.367670] + workqueue: code=16, symbol=q
-[ 5144.478658] + workqueue: code=17, symbol=w
-[ 5144.617924] + workqueue: code=18, symbol=e
-[ 5145.208937] + workqueue: code=30, symbol=a
-[ 5145.333704] + workqueue: code=31, symbol=s
-[ 5145.394412] + workqueue: code=32, symbol=d
-[ 5145.669350] + workqueue: code=14, symbol=Backspace
-[ 5145.844534] + workqueue: code=14, symbol=Backspace
-[ 5146.014911] + workqueue: code=14, symbol=Backspace
-[ 5146.180142] + workqueue: code=14, symbol=Backspace
-[ 5146.341165] + workqueue: code=14, symbol=Backspace
-[ 5146.510672] + workqueue: code=14, symbol=Backspace
-[ 5146.911365] + workqueue: code=50, symbol=m
-[ 5147.016410] + workqueue: code=30, symbol=a
-[ 5147.186760] + workqueue: code=37, symbol=k
-[ 5147.321979] + workqueue: code=18, symbol=e
-[ 5147.847948] + workqueue: code=19, symbol=r
-[ 5147.908607] + workqueue: code=18, symbol=e
-[ 5148.058141] + workqueue: code=31, symbol=s
-[ 5155.445665] + workqueue: code=50, symbol=m
-[ 5155.795290] + workqueue: code=30, symbol=a
-[ 5156.160969] + workqueue: code=14, symbol=Backspace
-[ 5156.326893] + workqueue: code=14, symbol=Backspace
-[ 5158.029350] + workqueue: code=50, symbol=m
-[ 5158.184069] + workqueue: code=30, symbol=a
-[ 5158.269311] + workqueue: code=37, symbol=k
-[ 5158.445447] + workqueue: code=18, symbol=e
-[ 5158.720004] + workqueue: code=14, symbol=Backspace
-[ 5158.875237] + workqueue: code=14, symbol=Backspace
-[ 5159.015498] + workqueue: code=14, symbol=Backspace
-[ 5159.170676] + workqueue: code=14, symbol=Backspace
-[ 5159.305875] + workqueue: code=14, symbol=Backspace
-[ 5164.394164] + workqueue: code=50, symbol=m
-[ 5164.495038] + workqueue: code=30, symbol=a
-[ 5164.624363] + workqueue: code=37, symbol=k
-[ 5164.709508] + workqueue: code=18, symbol=e
-[ 5165.355718] + workqueue: code=32, symbol=d
-[ 5165.471993] + workqueue: code=23, symbol=i
-[ 5165.581237] + workqueue: code=31, symbol=s
-[ 5165.736442] + workqueue: code=46, symbol=c
-[ 5165.871561] + workqueue: code=38, symbol=l
-[ 5165.971743] + workqueue: code=18, symbol=e
-[ 5166.057319] + workqueue: code=30, symbol=a
-[ 5166.182193] + workqueue: code=49, symbol=n
-[ 5166.477113] + workqueue: exit
-[ 5181.677636] + workqueue: init
-[ 5181.677644] + workqueue: proc file created
-[ 5181.677684] + workqueue: irq requested
-[ 5183.816379] + workqueue: code=50, symbol=m
-[ 5183.891571] + workqueue: code=30, symbol=a
-[ 5184.016626] + workqueue: code=37, symbol=k
-[ 5184.091685] + workqueue: code=18, symbol=e
-[ 5185.083427] + workqueue: code=19, symbol=r
-[ 5185.143730] + workqueue: code=18, symbol=e
-[ 5185.228539] + workqueue: code=31, symbol=s
-[ 5197.293513] + workqueue: code=46, symbol=c
-[ 5197.393703] + workqueue: code=30, symbol=a
-[ 5197.509802] + workqueue: code=20, symbol=t
-[ 5198.415233] + workqueue: code=25, symbol=p
-[ 5198.556902] + workqueue: code=19, symbol=r
-[ 5198.685807] + workqueue: code=24, symbol=o
-[ 5198.831176] + workqueue: code=46, symbol=c
-[ 5201.811093] + workqueue: code=50, symbol=m
-[ 5202.096502] + workqueue: code=21, symbol=y
-[ 5202.342103] + workqueue: code=42, symbol=Left Shift
-[ 5202.593658] + workqueue: code=42, symbol=Left Shift
-[ 5202.617365] + workqueue: code=12, symbol=-
-[ 5204.506756] + workqueue: code=17, symbol=w
-[ 5204.735831] + workqueue: code=16, symbol=q
-[ 5209.711889] + workqueue: code=50, symbol=m
-[ 5209.809331] + workqueue: code=30, symbol=a
-[ 5209.949407] + workqueue: code=37, symbol=k
-[ 5210.029625] + workqueue: code=18, symbol=e
-[ 5210.380770] + workqueue: code=46, symbol=c
-[ 5210.480313] + workqueue: code=38, symbol=l
-[ 5210.601685] + workqueue: code=18, symbol=e
-[ 5210.670904] + workqueue: code=30, symbol=a
-[ 5210.800931] + workqueue: code=49, symbol=n
-[ 5212.263508] + workqueue: code=14, symbol=Backspace
-[ 5212.378619] + workqueue: code=14, symbol=Backspace
-[ 5212.524799] + workqueue: code=14, symbol=Backspace
-[ 5212.654187] + workqueue: code=14, symbol=Backspace
-[ 5212.819405] + workqueue: code=14, symbol=Backspace
-[ 5213.050123] + workqueue: code=31, symbol=s
-[ 5213.225110] + workqueue: code=23, symbol=i
-[ 5213.365443] + workqueue: code=46, symbol=c
-[ 5213.641233] + workqueue: code=15, symbol=Tab
-[ 5213.946654] + workqueue: code=14, symbol=Backspace
-[ 5214.142271] + workqueue: code=14, symbol=Backspace
-[ 5214.262422] + workqueue: code=14, symbol=Backspace
-[ 5214.682486] + workqueue: code=32, symbol=d
-[ 5214.852982] + workqueue: code=23, symbol=i
-[ 5214.968067] + workqueue: code=31, symbol=s
-[ 5215.128785] + workqueue: code=46, symbol=c
-[ 5215.288569] + workqueue: code=38, symbol=l
-[ 5215.368904] + workqueue: code=18, symbol=e
-[ 5215.473858] + workqueue: code=30, symbol=a
-[ 5215.589877] + workqueue: code=49, symbol=n
-[ 5215.847463] + workqueue: exit
-[ 5270.259830] + workqueue: init
-[ 5270.259841] + workqueue: proc file created
-[ 5270.259893] + workqueue: irq requested
-[ 5271.419327] + workqueue: code=50, symbol=m
-[ 5271.514496] + workqueue: code=30, symbol=a
-[ 5271.640580] + workqueue: code=37, symbol=k
-[ 5271.719843] + workqueue: code=18, symbol=e
-[ 5272.030356] + workqueue: code=19, symbol=r
-[ 5272.125533] + workqueue: code=18, symbol=e
-[ 5272.235814] + workqueue: code=31, symbol=s
-[ 5272.381122] + workqueue: code=28, symbol=Enter
-[ 5284.412957] + workqueue: code=50, symbol=m
-[ 5284.507776] + workqueue: code=30, symbol=a
-[ 5284.613216] + workqueue: code=37, symbol=k
-[ 5284.743291] + workqueue: code=18, symbol=e
-[ 5285.019300] + workqueue: code=32, symbol=d
-[ 5285.159232] + workqueue: code=23, symbol=i
-[ 5285.264325] + workqueue: code=31, symbol=s
-[ 5285.475164] + workqueue: code=46, symbol=c
-[ 5285.600106] + workqueue: code=38, symbol=l
-[ 5285.731227] + workqueue: code=18, symbol=e
-[ 5285.805488] + workqueue: code=30, symbol=a
-[ 5286.005895] + workqueue: code=49, symbol=n
-[ 5286.256344] + workqueue: code=28, symbol=Enter
-[ 5286.314472] + workqueue: exit
-[ 5286.314568] + workqueue: code=28, symbol=Enter
-[ 5351.245834] + workqueue: init
-[ 5351.245844] + workqueue: proc file created
-[ 5351.245881] + workqueue: irq requested
-[ 5351.973102] + workqueue: code=50, symbol=m
-[ 5352.068157] + workqueue: code=30, symbol=a
-[ 5352.178306] + workqueue: code=37, symbol=k
-[ 5352.268949] + workqueue: code=18, symbol=e
-[ 5352.394242] + workqueue: code=57, symbol=Space
-[ 5352.684445] + workqueue: code=19, symbol=r
-[ 5352.759488] + workqueue: code=18, symbol=e
-[ 5352.860851] + workqueue: code=31, symbol=s
-[ 5353.050524] + workqueue: code=28, symbol=Enter
-[ 5362.825335] + workqueue: code=28, symbol=Enter
-[ 5364.272128] + workqueue: code=28, symbol=Enter
-[ 5368.155210] + workqueue: code=50, symbol=m
-[ 5368.254720] + workqueue: code=30, symbol=a
-[ 5368.385432] + workqueue: code=37, symbol=k
-[ 5368.490111] + workqueue: code=18, symbol=e
-[ 5368.600505] + workqueue: code=57, symbol=Space
-[ 5369.417204] + workqueue: code=32, symbol=d
-[ 5369.542416] + workqueue: code=23, symbol=i
-[ 5369.662698] + workqueue: code=31, symbol=s
-[ 5369.884461] + workqueue: code=46, symbol=c
-[ 5370.108611] + workqueue: code=38, symbol=l
-[ 5370.158798] + workqueue: code=18, symbol=e
-[ 5370.354044] + workqueue: code=30, symbol=a
-[ 5371.646873] + workqueue: code=14, symbol=Backspace
-[ 5371.787164] + workqueue: code=14, symbol=Backspace
-[ 5371.932402] + workqueue: code=14, symbol=Backspace
-[ 5372.072950] + workqueue: code=14, symbol=Backspace
-[ 5372.212937] + workqueue: code=14, symbol=Backspace
-[ 5372.358217] + workqueue: code=14, symbol=Backspace
-[ 5372.498337] + workqueue: code=14, symbol=Backspace
-[ 5372.628661] + workqueue: code=14, symbol=Backspace
-[ 5372.759693] + workqueue: code=14, symbol=Backspace
-[ 5372.906213] + workqueue: code=14, symbol=Backspace
-[ 5373.074657] + workqueue: code=14, symbol=Backspace
-[ 5373.244967] + workqueue: code=14, symbol=Backspace
-[ 5373.555598] + workqueue: code=46, symbol=c
-[ 5373.645638] + workqueue: code=30, symbol=a
-[ 5373.816990] + workqueue: code=20, symbol=t
-[ 5374.482551] + workqueue: code=57, symbol=Space
-[ 5374.667824] + workqueue: code=53, symbol=?
-[ 5374.899027] + workqueue: code=25, symbol=p
-[ 5375.018388] + workqueue: code=19, symbol=r
-[ 5375.214086] + workqueue: code=24, symbol=o
-[ 5375.841070] + workqueue: code=46, symbol=c
-[ 5376.100670] + workqueue: code=53, symbol=?
-[ 5383.075396] + workqueue: code=50, symbol=m
-[ 5383.525779] + workqueue: code=21, symbol=y
-[ 5383.922300] + workqueue: code=42, symbol=Left Shift
-[ 5384.101751] + workqueue: code=12, symbol=-
-[ 5384.417421] + workqueue: code=17, symbol=w
-[ 5384.930464] + workqueue: code=16, symbol=q
-[ 5385.955437] + workqueue: code=28, symbol=Enter
-[ 5387.453468] + workqueue: code=50, symbol=m
-[ 5387.518450] + workqueue: code=30, symbol=a
-[ 5387.663871] + workqueue: code=37, symbol=k
-[ 5387.749034] + workqueue: code=18, symbol=e
-[ 5387.915286] + workqueue: code=57, symbol=Space
-[ 5388.370481] + workqueue: code=32, symbol=d
-[ 5388.761191] + workqueue: code=23, symbol=i
-[ 5388.877476] + workqueue: code=31, symbol=s
-[ 5389.052077] + workqueue: code=46, symbol=c
-[ 5389.202110] + workqueue: code=38, symbol=l
-[ 5389.307318] + workqueue: code=18, symbol=e
-[ 5389.392512] + workqueue: code=30, symbol=a
-[ 5389.497661] + workqueue: code=49, symbol=n
-[ 5389.748150] + workqueue: code=28, symbol=Enter
-[ 5389.803861] + workqueue: exit
-[ 5389.803958] + workqueue: code=28, symbol=Enter
-[ 6444.986684] + tasklet: init
-[ 6449.045422] + tasklet: code=50, symbol=m
-[ 6449.100439] + tasklet: code=30, symbol=a
-[ 6449.255717] + tasklet: code=37, symbol=k
-[ 6449.360907] + tasklet: code=18, symbol=e
-[ 6449.441080] + tasklet: code=57, symbol=Space
-[ 6449.641774] + tasklet: code=19, symbol=r
-[ 6449.752623] + tasklet: code=18, symbol=e
-[ 6449.921912] + tasklet: code=30, symbol=a
-[ 6450.623100] + tasklet: code=14, symbol=Backspace
-[ 6450.759114] + tasklet: code=31, symbol=s
-[ 6450.933903] + tasklet: code=28, symbol=Enter
+[  312.105995] + workqueue: sleep
+[  312.133099] + tasklet: code=49, symbol=n
+[  312.133316] + workqueue: code=49, symbol=n
+[  312.373824] + tasklet: code=20, symbol=t
+[  312.374789] + workqueue: code=20, symbol=t
+[  312.448374] + tasklet: code=18, symbol=e
+[  312.449234] + workqueue: code=18, symbol=e
+[  312.528558] + tasklet: code=19, symbol=r
+[  312.529239] + workqueue: code=19, symbol=r
+[  314.154092] + workqueue: wake up
+[  314.154111] + workqueue: sleep
+[  315.559233] + tasklet: code=19, symbol=r
+[  315.559465] + workqueue: code=19, symbol=r
+[  315.800690] + tasklet: code=22, symbol=u
+[  315.801005] + workqueue: code=22, symbol=u
+[  316.064988] + tasklet: code=25, symbol=p
+[  316.065258] + workqueue: code=25, symbol=p
+[  316.201230] + workqueue: wake up
+[  316.201251] + workqueue: sleep
+[  316.456152] + tasklet: code=20, symbol=t
+[  316.457192] + workqueue: code=20, symbol=t
+[  316.576258] + tasklet: code=31, symbol=s
+[  316.577155] + workqueue: code=31, symbol=s
+[  316.992482] + tasklet: code=57, symbol=Space
+[  316.993558] + workqueue: code=57, symbol=Space
+[  317.247875] + tasklet: code=54, symbol=Right Shift
+[  317.248653] + workqueue: code=54, symbol=Right Shift
+[  317.357851] + tasklet: code=52, symbol=>
+[  317.358660] + workqueue: code=52, symbol=>
+[  317.507691] + tasklet: code=57, symbol=Space
+[  317.507992] + workqueue: code=57, symbol=Space
+[  317.804222] + tasklet: code=23, symbol=i
+[  317.804446] + workqueue: code=23, symbol=i
+[  318.193991] + tasklet: code=52, symbol=>
+[  318.195204] + workqueue: code=52, symbol=>
+[  318.251733] + workqueue: wake up
+[  318.251748] + workqueue: sleep
+[  318.515402] + tasklet: code=20, symbol=t
+[  318.516729] + workqueue: code=20, symbol=t
+[  318.629751] + tasklet: code=45, symbol=x
+[  318.629968] + workqueue: code=45, symbol=x
+[  318.730001] + tasklet: code=20, symbol=t
+[  318.730892] + workqueue: code=20, symbol=t
+[  319.185718] + tasklet: code=28, symbol=Enter
+[  319.185972] + workqueue: code=28, symbol=Enter
+[  320.298570] + workqueue: wake up
+[  320.298582] + workqueue: sleep
+[  322.345606] + workqueue: wake up
+[  335.674861] + tasklet: code=50, symbol=m
+[  335.675076] + workqueue: code=50, symbol=m
+[  335.675094] + workqueue: sleep
+[  335.794752] + tasklet: code=30, symbol=a
+[  335.795118] + workqueue: code=30, symbol=a
+[  335.890985] + tasklet: code=37, symbol=k
+[  335.891235] + workqueue: code=37, symbol=k
+[  336.016055] + tasklet: code=18, symbol=e
+[  336.016285] + workqueue: code=18, symbol=e
+[  336.130623] + tasklet: code=57, symbol=Space
+[  336.130888] + workqueue: code=57, symbol=Space
+[  336.626484] + tasklet: code=19, symbol=r
+[  336.626748] + workqueue: code=19, symbol=r
+[  336.702505] + tasklet: code=18, symbol=e
+[  336.702553] + workqueue: code=18, symbol=e
+[  336.772162] + tasklet: code=31, symbol=s
+[  336.772191] + workqueue: code=31, symbol=s
+[  337.247788] + tasklet: code=28, symbol=Enter
+[  337.248096] + workqueue: code=28, symbol=Enter
+[  337.705610] + workqueue: wake up
+[  337.705620] + workqueue: sleep
+[  339.754456] + workqueue: wake up
+[  406.307710] + tasklet: code=35, symbol=h
+[  406.308080] + workqueue: code=35, symbol=h
+[  406.308089] + workqueue: sleep
+[  408.360910] + workqueue: wake up
+[  412.338236] + tasklet: code=50, symbol=m
+[  412.338481] + workqueue: code=50, symbol=m
+[  412.338488] + workqueue: sleep
+[  412.437920] + tasklet: code=30, symbol=a
+[  412.439091] + workqueue: code=30, symbol=a
+[  412.543554] + tasklet: code=37, symbol=k
+[  412.543606] + workqueue: code=37, symbol=k
+[  412.673658] + tasklet: code=18, symbol=e
+[  412.673928] + workqueue: code=18, symbol=e
+[  412.773891] + tasklet: code=57, symbol=Space
+[  412.774185] + workqueue: code=57, symbol=Space
+[  413.194524] + tasklet: code=19, symbol=r
+[  413.194740] + workqueue: code=19, symbol=r
+[  413.259696] + tasklet: code=18, symbol=e
+[  413.259844] + workqueue: code=18, symbol=e
+[  413.355560] + tasklet: code=31, symbol=s
+[  413.355812] + workqueue: code=31, symbol=s
+[  413.595789] + tasklet: code=28, symbol=Enter
+[  413.596375] + workqueue: code=28, symbol=Enter
+[  414.377635] + workqueue: wake up
+[  414.377709] + workqueue: sleep
+[  416.426476] + workqueue: wake up
+[  443.642907] + tasklet: code=50, symbol=m
+[  443.643185] + workqueue: code=50, symbol=m
+[  443.643206] + workqueue: sleep
+[  444.389278] + tasklet: code=30, symbol=a
+[  444.389554] + workqueue: code=30, symbol=a
+[  444.513947] + tasklet: code=37, symbol=k
+[  444.514545] + workqueue: code=37, symbol=k
+[  444.619277] + tasklet: code=18, symbol=e
+[  444.619505] + workqueue: code=18, symbol=e
+[  444.719290] + tasklet: code=57, symbol=Space
+[  444.719542] + workqueue: code=57, symbol=Space
+[  445.066161] + tasklet: code=32, symbol=d
+[  445.066434] + workqueue: code=32, symbol=d
+[  445.224898] + tasklet: code=23, symbol=i
+[  445.225128] + workqueue: code=23, symbol=i
+[  445.275573] + tasklet: code=31, symbol=s
+[  445.275968] + workqueue: code=31, symbol=s
+[  445.405389] + tasklet: code=46, symbol=c
+[  445.405494] + workqueue: code=46, symbol=c
+[  445.560867] + tasklet: code=38, symbol=l
+[  445.561119] + workqueue: code=38, symbol=l
+[  445.635208] + tasklet: code=18, symbol=e
+[  445.635227] + workqueue: code=18, symbol=e
+[  445.673383] + workqueue: wake up
+[  445.673393] + workqueue: sleep
+[  445.726143] + tasklet: code=30, symbol=a
+[  445.726657] + workqueue: code=30, symbol=a
+[  445.861410] + tasklet: code=49, symbol=n
+[  445.861438] + workqueue: code=49, symbol=n
+[  446.157181] + tasklet: code=28, symbol=Enter
+[  446.157443] + workqueue: code=28, symbol=Enter
+[  446.332805] + tasklet: exit
+[  446.359390] + workqueue: exit
+[  447.722368] + workqueue: wake up
+[  447.722387] + workqueue: sleep
+[  449.769645] + workqueue: wake up
+[  482.929030] + tasklet: init
+[  482.929586] WARNING: CPU: 4 PID: 3388 at fs/proc/generic.c:377 proc_register+0x109/0x190
+[  482.929638] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
+[  482.929957] RIP: 0010:proc_register+0x109/0x190
+[  482.930044]  ? __pfx_my_init+0x10/0x10 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
+[  482.930058]  my_init+0x30/0xff0 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
+[  482.930067]  do_one_initcall+0x5c/0x310
+[  482.930086]  do_init_module+0x62/0x240
+[  482.930140]  init_module_from_file+0x8b/0xe0
+[  482.930148]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930255]  idempotent_init_module+0x115/0x310
+[  482.930267]  __x64_sys_finit_module+0x67/0xc0
+[  482.930277]  do_syscall_64+0x7b/0x190
+[  482.930587]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930595]  ? atime_needs_update+0x9e/0x120
+[  482.930608]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930614]  ? touch_atime+0x1e/0x120
+[  482.930620]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930627]  ? filemap_read+0x3e6/0x420
+[  482.930707]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930713]  ? dput+0x34/0x1c0
+[  482.930721]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930727]  ? __fsnotify_parent+0x163/0x3f0
+[  482.930772]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930778]  ? vfs_read+0x162/0x390
+[  482.930821]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930827]  ? __x64_sys_pread64+0xab/0xd0
+[  482.930834]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930840]  ? syscall_exit_to_user_mode+0x37/0x1c0
+[  482.930879]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930884]  ? do_syscall_64+0x87/0x190
+[  482.930892]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930898]  ? __count_memcg_events+0xb0/0x150
+[  482.930908]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930914]  ? count_memcg_events.constprop.0+0x1a/0x30
+[  482.930923]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.930928]  ? handle_mm_fault+0x1b6/0x2c0
+[  482.931240]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.931248]  ? do_user_addr_fault+0x36c/0x640
+[  482.931260]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.931265]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  482.931270]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
+[  482.931278]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[  560.473945] + tasklet: init
+[  560.474160] WARNING: CPU: 1 PID: 3518 at fs/proc/generic.c:377 proc_register+0x109/0x190
+[  560.474174] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
+[  560.474491] RIP: 0010:proc_register+0x109/0x190
+[  560.474600]  ? __pfx_my_init+0x10/0x10 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
+[  560.474610]  my_init+0x30/0xff0 [tasklet 5991bc5f0fa953fc234b71c5217d357a9249e71f]
+[  560.474616]  do_one_initcall+0x5c/0x310
+[  560.474629]  do_init_module+0x62/0x240
+[  560.474636]  init_module_from_file+0x8b/0xe0
+[  560.474648]  idempotent_init_module+0x115/0x310
+[  560.474657]  __x64_sys_finit_module+0x67/0xc0
+[  560.474664]  do_syscall_64+0x7b/0x190
+[  560.474672]  ? rcu_core+0x19d/0x360
+[  560.474747]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  560.474753]  ? irqtime_account_irq+0x3c/0xc0
+[  560.474780]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  560.474784]  ? handle_softirqs+0x192/0x2a0
+[  560.474793]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  560.474797]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  560.474801]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
+[  560.474808]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[  593.881315] + tasklet: init
+[  593.881451] WARNING: CPU: 1 PID: 3985 at fs/proc/generic.c:377 proc_register+0x109/0x190
+[  593.881466] Modules linked in: tasklet(OE+) uinput snd_seq_dummy snd_hrtimer snd_seq_midi snd_seq_midi_event snd_seq cfg80211 rfkill 8021q garp mrp stp llc intel_rapl_msr intel_rapl_common polyval_clmulni polyval_generic snd_ens1371 ghash_clmulni_intel sha512_ssse3 snd_ac97_codec vmw_balloon joydev sha256_ssse3 sha1_ssse3 aesni_intel gameport crypto_simd snd_rawmidi snd_seq_device cryptd ac97_bus psmouse pcspkr snd_pcm snd_timer i2c_piix4 snd e1000 soundcore i2c_smbus mousedev mac_hid i2c_dev crypto_user loop dm_mod nfnetlink vsock_loopback vmw_vsock_virtio_transport_common vmw_vsock_vmci_transport vsock vmw_vmci ip_tables x_tables vmwgfx serio_raw atkbd ata_generic mptspi drm_ttm_helper pata_acpi libps2 hid_generic sr_mod scsi_transport_spi vivaldi_fmap usbhid cdrom mptscsih intel_agp ttm mptbase ata_piix intel_gtt i8042 serio
+[  593.881690] RIP: 0010:proc_register+0x109/0x190
+[  593.881786]  ? __pfx_my_init+0x10/0x10 [tasklet e615c029f9471b73762941ee071e7c596f95541e]
+[  593.881798]  my_init+0x30/0xff0 [tasklet e615c029f9471b73762941ee071e7c596f95541e]
+[  593.881807]  do_one_initcall+0x5c/0x310
+[  593.881885]  do_init_module+0x62/0x240
+[  593.881894]  init_module_from_file+0x8b/0xe0
+[  593.881908]  idempotent_init_module+0x115/0x310
+[  593.881920]  __x64_sys_finit_module+0x67/0xc0
+[  593.881928]  do_syscall_64+0x7b/0x190
+[  593.881938]  ? srso_alias_return_thunk+0x5/0xfbef5
+[  593.881945]  ? irqentry_exit_to_user_mode+0x2c/0x1b0
+[  593.881954]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
