@@ -134,8 +134,6 @@ static void seq_stop(struct seq_file *m, void *v) {
         printk(KERN_INFO "+ seq_stop: m=%p, v=NULL\n", m);
 }
 
-
-
 const struct seq_operations seq_ops = {
     .start = seq_start,
     .next  = seq_next,

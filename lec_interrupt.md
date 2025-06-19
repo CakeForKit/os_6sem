@@ -251,25 +251,17 @@ const char * const softirq_to_name[NR_SOFTIRQS] = {
 
 Для написания softirq надо будет перекомпилировать ядро:
 ```C
-void __init mysoftirq_init(void) {
-    ...
+void __init mysoftirq_init(void) { ...
     request_irq(irq, xxx_interrupt, 0, "xxx", NULL);
     open_softirq(XXX_SOFTIRQ, xxx_handler, NULL);
-    ...
-}
-
+    ... }
 void open_softirq(int nr, void (*action)(struct softirq_action *))
-{
-	softirq_vec[nr].action = action;
-}
-
+{ softirq_vec[nr].action = action; }
 /* interrupt handler */
 static irqreturn_t xxx_interrupt(int irq, void* dev_id) {
     /* mark softirq as pending */
     raise_softirq(xxx_SOFT_IRQ);
-    ...
-    return IRQ_HANDLER;
-}
+    ... return IRQ_HANDLER;}
 
 ```
 
@@ -459,11 +451,11 @@ void tasklet_unlock(struct tasklet_struct *t);
 
 Отличия:
 
-Т - выполняется в контексте програмного обеспечения прерывания => кол Т должен быть неделимым.
-ОР - выполняются в контексте специалиного потока ядра => являются более гибкими и могут блокироваться.
+Т - выполняются в контексте прерывания, на том же процессоре на кот выполнялся обработчик прерывания запланировавший тасклет. Как правило тасклет начинает выполнятся сразу по завершении обработчика прерывания (если не пришло др более высокоприоритетное действие).
+ОР - выполняются в контексте специалиного потока ядра. Планирует его выполнение – стандартный планировщик. По умолч выполняется на том же процессоре на кот была поставлено в очередь, но можно отвязать UNBOUND. 
 
-Т - всегда выполняется на процессоре на котором завергилась обработка аппаратного прерывания (т е top half), которая и поставилас Т в очередь на выполнение.
-ОЧ - по умолчанию ОЧ выполняется также, но можно поменять процессор
+Т - не могут блокироваться.
+ОЧ - Могут блокироваться.
 
 Код ядра может потребовать чтобы выполнение функции обработчика очереди было отложено на некоторое время.
 
@@ -499,42 +491,42 @@ struct workqueue_struct {
 	struct list_head	pwqs;		/* WR: all pwqs of this wq */
 	struct list_head	list;		/* PR: list of all workqueues */
 
-	// struct mutex		mutex;		/* protects this wq */
-	// int			work_color;	/* WQ: current work color */
-	// int			flush_color;	/* WQ: current flush color */
-	// atomic_t		nr_pwqs_to_flush; /* flush in progress */
+	struct mutex		mutex;		/* protects this wq */
+	int			work_color;	/* WQ: current work color */
+	int			flush_color;	/* WQ: current flush color */
+	atomic_t		nr_pwqs_to_flush; /* flush in progress */
 	struct wq_flusher	*first_flusher;	/* WQ: first flusher */
 	struct list_head	flusher_queue;	/* WQ: flush waiters */
-// 	struct list_head	flusher_overflow; /* WQ: flush overflow list */
+	struct list_head	flusher_overflow; /* WQ: flush overflow list */
 
-// 	struct list_head	maydays;	/* MD: pwqs requesting rescue */
-// 	struct worker		*rescuer;	/* MD: rescue worker */
+	struct list_head	maydays;	/* MD: pwqs requesting rescue */
+	struct worker		*rescuer;	/* MD: rescue worker */
 
-// 	int			nr_drainers;	/* WQ: drain in progress */
-// 	int			saved_max_active; /* WQ: saved pwq max_active */
+	int			nr_drainers;	/* WQ: drain in progress */
+	int			saved_max_active; /* WQ: saved pwq max_active */
 
-// 	struct workqueue_attrs	*unbound_attrs;	/* PW: only for unbound wqs */
-// 	struct pool_workqueue	*dfl_pwq;	/* PW: only for unbound wqs */
+	struct workqueue_attrs	*unbound_attrs;	/* PW: only for unbound wqs */
+	struct pool_workqueue	*dfl_pwq;	/* PW: only for unbound wqs */
 
-// #ifdef CONFIG_SYSFS
-// 	struct wq_device	*wq_dev;	/* I: for sysfs interface */
-// #endif
-// #ifdef CONFIG_LOCKDEP
-// 	char			*lock_name;
-// 	struct lock_class_key	key;
-// 	struct lockdep_map	lockdep_map;
-// #endif
+#ifdef CONFIG_SYSFS
+	struct wq_device	*wq_dev;	/* I: for sysfs interface */
+#endif
+#ifdef CONFIG_LOCKDEP
+	char			*lock_name;
+	struct lock_class_key	key;
+	struct lockdep_map	lockdep_map;
+#endif
 	char			name[WQ_NAME_LEN]; /* I: workqueue name */
 
-	// /*
-	//  * Destruction of workqueue_struct is RCU protected to allow walking
-	//  * the workqueues list without grabbing wq_pool_mutex.
-	//  * This is used to dump all workqueues from sysrq.
-	//  */
-	// struct rcu_head		rcu;
+	/*
+	 * Destruction of workqueue_struct is RCU protected to allow walking
+	 * the workqueues list without grabbing wq_pool_mutex.
+	 * This is used to dump all workqueues from sysrq.
+	 */
+	struct rcu_head		rcu;
 
-	// /* hot fields used during command issue, aligned to cacheline */
-	// unsigned int		flags ____cacheline_aligned; /* WQ: WQ_* flags */
+	/* hot fields used during command issue, aligned to cacheline */
+	unsigned int		flags ____cacheline_aligned; /* WQ: WQ_* flags */
 	struct pool_workqueue __percpu *cpu_pwqs; /* I: per-cpu pwqs */
 	struct pool_workqueue __rcu *numa_pwq_tbl[]; /* PWR: unbound pwqs indexed by node */
 };
@@ -607,7 +599,7 @@ WQ_FREEZABLE - может быть приостановлен
 WQ_UNBOUND - 
 
 
-4.06.25 15:00
+
 
 
 

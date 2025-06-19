@@ -30,17 +30,6 @@ When a blocked SCHED_FIFO thread becomes runnable, it will be
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 дескриптор страницы в таблице страниц
 present access dirty
 

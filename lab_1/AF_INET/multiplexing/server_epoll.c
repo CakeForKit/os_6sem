@@ -119,8 +119,8 @@ int main(int argc, char *argv[]) {
 
     struct epoll_event ev, events[max_events];
     int nfds, epollfd;
-    epollfd = epoll_create1(0);
-    if (epollfd == -1) {
+    
+    if ((epollfd = epoll_create1(0);) == -1) {
         perror("epoll_create1");
         exit(EXIT_FAILURE);
     }
@@ -140,23 +140,20 @@ int main(int argc, char *argv[]) {
     struct sockaddr cli_addr;
     socklen_t clilen = sizeof(struct sockaddr);
     while (f_sig) {
-        nfds = epoll_wait(epollfd, events, max_events, -1);
-        if (nfds == -1) {
+        if ((nfds = epoll_wait(epollfd, events, max_events, -1)) == -1) {
             perror("epoll_wait");
             exit(EXIT_FAILURE);
         }
         beg = clock();
         for (size_t i = 0; i < nfds; ++i) {
             if (events[i].data.fd == listenfd) {
-                connfd = accept(listenfd, (struct sockaddr *) &cli_addr, &clilen);
-                if (connfd == -1) {
+                if ((connfd = accept(listenfd, (struct sockaddr *) &cli_addr, &clilen)) == -1) {
                     perror("accept");
                     exit(EXIT_FAILURE);
                 }
                 ev.events = EPOLLIN | EPOLLET;
                 ev.data.fd = connfd;
-                if (epoll_ctl(epollfd, EPOLL_CTL_ADD, connfd,
-                            &ev) == -1) {
+                if (epoll_ctl(epollfd, EPOLL_CTL_ADD, connfd, &ev) == -1) {
                     perror("epoll_ctl: connfd");
                     exit(EXIT_FAILURE);
                 }
